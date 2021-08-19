@@ -1,0 +1,15 @@
+#!/bin/sh
+# inputed commit message
+COMMIT_MSG_FILE=$1
+
+# unix formatted time
+DATE=$(date +%F)
+
+# getting project version
+VERSION=$(dart .githooks/get_version_from_pubspec.dart)
+
+# forming predefined commit message
+MESSAGE="$DATE version: $VERSION "
+
+# forming completed commit message
+sed -i '' -e "1s/^/$MESSAGE/" $COMMIT_MSG_FILE
