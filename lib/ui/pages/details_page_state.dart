@@ -10,6 +10,11 @@ class DetailsPageState extends BasePageState {
   DetailsPageState({required this.designPattern, required this.innerWidget});
 
   @override
+  AppBar? appBar() {
+    return null;
+  }
+
+  @override
   Widget buildBody() {
     // TODO: implement buildBody
     throw UnimplementedError();

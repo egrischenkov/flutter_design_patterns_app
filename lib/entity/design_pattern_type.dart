@@ -12,7 +12,9 @@ class DesignPatternType {
   factory DesignPatternType.fromJson(Map<String, dynamic> json) {
      return DesignPatternType(
       id: json['id'] as String,
-      designPatterns: json['patterns'] as List<DesignPattern>,
+      designPatterns: (json['patterns'] as List<dynamic>).map((designPattern) {
+        return DesignPattern.fromJson(designPattern as Map<String, dynamic>);
+      }).toList(),
     );
   }
 }

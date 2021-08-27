@@ -4,11 +4,7 @@ import 'page_state_factory.dart';
 
 abstract class BasePageState extends State<PageStateFactory> {
 
-  AppBar appBar({String? title}) {
-    return AppBar(
-      title: Text(title ?? 'Flutter Design Patterns'),
-    );
-  }
+  AppBar? appBar();
 
   Widget buildBody();
 

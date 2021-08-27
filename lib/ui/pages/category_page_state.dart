@@ -8,6 +8,11 @@ class CategoryPageState extends BasePageState {
   CategoryPageState({required this.designPatternType});
 
   @override
+  AppBar? appBar() {
+    return null;
+  }
+
+  @override
   Widget buildBody() {
     // TODO: implement buildBody
     throw UnimplementedError();

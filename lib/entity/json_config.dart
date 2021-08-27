@@ -8,7 +8,9 @@ class JsonConfig {
 
   factory JsonConfig.fromJson(Map<String, dynamic> json) {
     return JsonConfig(
-      patternTypes: json['pattern_types'],
+      patternTypes: (json['pattern_types'] as List<dynamic>).map((patternType) {
+        return DesignPatternType.fromJson(patternType as Map<String, dynamic>);
+      }).toList(),
     );
   }
 }

@@ -11,3 +11,7 @@ analyzer:
     avoid_function_literals_in_foreach_calls: ignore
   exclude:
     - lib/**/*.g.dart
+
+dart_code_metrics:
+  rules:
+    - prefer-conditional-expressions

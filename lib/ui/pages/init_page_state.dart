@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../logic/providers/json_config_model.dart';
+import '../../entity/helpers/design_patterns_repository.dart';
+import '../../logic/navigation/app_router.dart';
+import '../../utils/utils.dart';
 import '../base_page_state.dart';
 
 class InitPageState extends BasePageState {
-
-
-
+  late DesignPatternsRepository repository;
 
   @override
   void initState() {
-    context.read<JsonConfigModel>().init();
+    repository = DesignPatternsRepository();
+    repository.init().then((patternsConfig) {
+      navigate(Navigation.mainRoute, replace: true, argument: patternsConfig);
+    });
     super.initState();
+  }
+
+  @override
+  AppBar? appBar() {
+    return null;
   }
 
   @override
@@ -21,5 +28,4 @@ class InitPageState extends BasePageState {
       child: FlutterLogo(),
     );
   }
-
 }
