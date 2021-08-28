@@ -7,12 +7,10 @@ class DetailsPageState extends BasePageState {
   final DesignPattern designPattern;
   final Widget innerWidget;
 
-  DetailsPageState({required this.designPattern, required this.innerWidget});
-
   @override
-  AppBar? appBar() {
-    return null;
-  }
+  Color backgroundColor() => Colors.blue;
+
+  DetailsPageState({required this.designPattern, required this.innerWidget});
 
   @override
   Widget buildBody() {

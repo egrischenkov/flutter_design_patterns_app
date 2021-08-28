@@ -5,17 +5,14 @@ import '../base_page_state.dart';
 class CategoryPageState extends BasePageState {
   final DesignPatternType designPatternType;
 
-  CategoryPageState({required this.designPatternType});
-
   @override
-  AppBar? appBar() {
-    return null;
-  }
+  Color backgroundColor() => Colors.blue;
+
+  CategoryPageState({required this.designPatternType});
 
   @override
   Widget buildBody() {
     // TODO: implement buildBody
     throw UnimplementedError();
   }
-
 }

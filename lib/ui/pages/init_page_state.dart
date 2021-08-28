@@ -12,15 +12,14 @@ class InitPageState extends BasePageState {
   void initState() {
     repository = DesignPatternsRepository();
     repository.init().then((patternsConfig) {
-      navigate(Navigation.mainRoute, replace: true, argument: patternsConfig);
+      final patternTypes = patternsConfig.patternTypes;
+      navigate(Navigation.mainRoute, replace: true, argument: patternTypes);
     });
     super.initState();
   }
 
   @override
-  AppBar? appBar() {
-    return null;
-  }
+  Widget? appBar() => null;
 
   @override
   Widget buildBody() {

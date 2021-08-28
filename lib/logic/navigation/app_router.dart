@@ -63,8 +63,9 @@ class AppRouter {
           builder: (context) => PageStateFactory(concreteState: () => InitPageState()),
         );
       case Navigation.mainRoute:
+        final patternTypes = _checkArgument<List<DesignPatternType>>(routeSettings.arguments);
         return MaterialPageRoute(
-          builder: (context) => PageStateFactory(concreteState: () => MainPageState()),
+          builder: (context) => PageStateFactory(concreteState: () => MainPageState(patternTypes)),
         );
       case Navigation.categoryRoute:
         final patternType = _checkArgument<DesignPatternType>(routeSettings.arguments);
