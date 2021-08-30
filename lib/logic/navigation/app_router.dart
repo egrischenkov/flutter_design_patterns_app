@@ -32,7 +32,6 @@ import '../../ui/pattern_widgets/template_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/visitor_pattern_widget.dart';
 
 class AppRouter {
-
   const AppRouter._();
 
   static _checkArgument<T>(Object? arg) {
@@ -43,16 +42,17 @@ class AppRouter {
   }
 
   static MaterialPageRoute _buildDesignPatternDetailsPageRoute(
-      RouteSettings routeSettings,
-      Widget innerWidget,
-      ) {
+    RouteSettings routeSettings,
+    Widget innerWidget,
+  ) {
     final designPattern = _checkArgument<DesignPattern>(routeSettings.arguments);
     return MaterialPageRoute(
-      builder: (context) => PageStateFactory(concreteState: () => DetailsPageState(
-        designPattern: designPattern,
-        innerWidget: innerWidget,
+      builder: (context) => PageStateFactory(
+        concreteState: () => DetailsPageState(
+          designPattern: designPattern,
+          innerWidget: innerWidget,
+        ),
       ),
-    ),
     );
   }
 
@@ -68,9 +68,14 @@ class AppRouter {
           builder: (context) => PageStateFactory(concreteState: () => MainPageState(patternTypes)),
         );
       case Navigation.categoryRoute:
-        final patternType = _checkArgument<DesignPatternType>(routeSettings.arguments);
+        final argument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
         return MaterialPageRoute(
-          builder: (context) => PageStateFactory(concreteState: () => CategoryPageState(designPatternType: patternType)),
+          builder: (context) => PageStateFactory(
+            concreteState: () => CategoryPageState(
+              designPatternType: argument['pattern_type'],
+              color: argument['color'],
+            ),
+          ),
         );
       case Navigation.abstractFactoryRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, AbstractFactoryPatternWidget());

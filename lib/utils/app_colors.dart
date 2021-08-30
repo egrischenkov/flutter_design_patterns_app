@@ -11,3 +11,11 @@ const thirdListTileColorLight = Color(0xFF150428);
 const appBarColorLight = Colors.white;
 
 const appBarItemColorLight = Colors.black;
+
+const listTileShadowColor = Color(0xFF5C6B75);
+
+const listTileBackgroundLightColor = Colors.white;
+
+const listTileTextLightColor = Colors.black;
+
+const appBarTextLightColor = Colors.white;

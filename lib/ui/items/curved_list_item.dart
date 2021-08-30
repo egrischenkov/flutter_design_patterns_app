@@ -7,6 +7,7 @@ class CurvedListItem extends StatelessWidget {
   final String description;
   final Color nextColor;
   final Color color;
+  final VoidCallback onTap;
 
   const CurvedListItem({
     required this.title,
@@ -14,40 +15,44 @@ class CurvedListItem extends StatelessWidget {
     required this.description,
     required this.color,
     required this.nextColor,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: nextColor,
+    return InkWell(
+      onTap: onTap,
       child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(90.0),
+        color: nextColor,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(90.0),
+            ),
           ),
-        ),
-        padding: const EdgeInsets.only(
-          left: 32,
-          right: 32,
-          top: 80.0,
-          bottom: 50,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              subtitle,
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-            VerticalSpace(2),
-            Text(
-              title,
-              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            VerticalSpace(32),
-            Text(description, style: TextStyle(color: Colors.white),),
-          ],
+          padding: const EdgeInsets.only(
+            left: 32,
+            right: 32,
+            top: 32,
+            bottom: 52,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                subtitle,
+                style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
+              VerticalSpace(2),
+              Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              VerticalSpace(32),
+              Text(description, style: TextStyle(color: Colors.white),),
+            ],
+          ),
         ),
       ),
     );

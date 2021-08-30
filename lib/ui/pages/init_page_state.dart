@@ -22,6 +22,9 @@ class InitPageState extends BasePageState {
   Widget? appBar() => null;
 
   @override
+  String? getTitle() => null;
+
+  @override
   Widget buildBody() {
     return Center(
       child: FlutterLogo(),

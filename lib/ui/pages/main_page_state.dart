@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern_type.dart';
+import '../../logic/navigation/app_router.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/utils.dart';
 import '../base_page_state.dart';
 import '../items/curved_list_item.dart';
 
@@ -42,15 +44,23 @@ class MainPageState extends BasePageState {
         padding: EdgeInsets.zero,
         itemCount: patternTypes.length,
         itemBuilder: (context, index) {
+          var designPatternType = patternTypes[index];
           return CurvedListItem(
-            title: patternTypes[index].id,
-            subtitle: '${patternTypes[index].designPatterns.length} patterns',
-            description: patternTypes[index].id,
+            title: designPatternType.id,
+            subtitle: '${designPatternType.designPatterns.length} patterns',
+            description: designPatternType.id,
             color: _colorSwitcher(index),
             nextColor: _colorSwitcher(index + 1),
+            onTap: () => navigate(
+              Navigation.categoryRoute,
+              argument: {'pattern_type': designPatternType, 'color': _colorSwitcher(index)},
+            ),
           );
         },
       ),
     );
   }
+
+  @override
+  String? getTitle() => 'Flutter Design Patterns';
 }

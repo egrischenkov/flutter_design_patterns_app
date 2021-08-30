@@ -18,4 +18,7 @@ class DetailsPageState extends BasePageState {
     throw UnimplementedError();
   }
 
+  @override
+  String getTitle() => designPattern.id;
+
 }
