@@ -17,55 +17,51 @@ class CurvedAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: backgroundColor,
+    return Material(
       child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(90.0),
+        color: backgroundColor,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(90.0),
+            ),
           ),
-        ),
-        padding: const EdgeInsets.symmetric(
-          vertical: 16,
-          horizontal: 64,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 32),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-              ),
-              VerticalSpace(32),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Hero(
-                    tag: 'theme_switch_widget',
-                    child: AppBarItem(
+          padding: const EdgeInsets.symmetric(
+            vertical: 16,
+            horizontal: 64,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 32),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+                VerticalSpace(32),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    AppBarItem(
                         Switch(
                           onChanged: (_) {},
                           value: true,
                         ),
                         'Theme'),
-                  ),
-                  HorizontalSpace(32),
-                  Hero(
-                    tag: 'favorite_widget',
-                    child: AppBarItem(
+                    HorizontalSpace(32),
+                    AppBarItem(
                         Icon(
                           Icons.favorite_border,
                         ),
                         'Favorite'),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../entity/design_pattern.dart';
 import '../../entity/design_pattern_type.dart';
 import '../../ui/page_state_factory.dart';
 import '../../ui/pages/category_page_state.dart';
@@ -45,12 +44,13 @@ class AppRouter {
     RouteSettings routeSettings,
     Widget innerWidget,
   ) {
-    final designPattern = _checkArgument<DesignPattern>(routeSettings.arguments);
+    final navigateArgument = _checkArgument<Map<String,dynamic>>(routeSettings.arguments);
     return MaterialPageRoute(
       builder: (context) => PageStateFactory(
         concreteState: () => DetailsPageState(
-          designPattern: designPattern,
+          designPattern: navigateArgument["design_pattern"],
           innerWidget: innerWidget,
+          appBarColor: navigateArgument["app_bar_color"],
         ),
       ),
     );
@@ -68,12 +68,12 @@ class AppRouter {
           builder: (context) => PageStateFactory(concreteState: () => MainPageState(patternTypes)),
         );
       case Navigation.categoryRoute:
-        final argument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
+        final navigateArgument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
         return MaterialPageRoute(
           builder: (context) => PageStateFactory(
             concreteState: () => CategoryPageState(
-              designPatternType: argument['pattern_type'],
-              color: argument['color'],
+              designPatternType: navigateArgument['pattern_type'],
+              color: navigateArgument['color'],
             ),
           ),
         );

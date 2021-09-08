@@ -4,7 +4,7 @@
       "id": "creational",
       "patterns": [
         {
-          "id": "abstract-factory",
+          "id": "abstract_factory",
           "route": "/abstract_factory"
         },
         {
@@ -12,7 +12,7 @@
           "route": "/builder"
         },
         {
-          "id": "factory-method",
+          "id": "factory_method",
           "route": "/factory_method"
         },
         {

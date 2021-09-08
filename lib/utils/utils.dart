@@ -1,5 +1,10 @@
+import 'dart:io';
 
 import 'const.dart';
+
+bool isAndroid() {
+  return Platform.isAndroid;
+}
 
 Future navigate(String screenName, {Object? argument = "", bool replace = false, bool replaceAll = false}) {
   if (globalKey.currentState == null) {

@@ -19,3 +19,8 @@ const listTileBackgroundLightColor = Colors.white;
 const listTileTextLightColor = Colors.black;
 
 const appBarTextLightColor = Colors.white;
+
+const tabLabelSelectedLightColor = Colors.white;
+const tabLabelUnselectedLightColor = Colors.black;
+
+final tabGradientColorLight = [mainPageBackgroundColorLight.withOpacity(0.9) ,mainPageBackgroundColorLight];

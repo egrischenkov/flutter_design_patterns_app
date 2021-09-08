@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../entity/repository/design_patterns_repository.dart';
 
-import '../../entity/helpers/design_patterns_repository.dart';
 import '../../logic/navigation/app_router.dart';
 import '../../utils/utils.dart';
 import '../base_page_state.dart';
