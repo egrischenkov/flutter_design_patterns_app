@@ -12,6 +12,10 @@ analyzer:
   exclude:
     - lib/**/*.g.dart
 
+linter:
+  rules:
+    one_member_abstracts: false
+
 dart_code_metrics:
   rules:
     - prefer-conditional-expressions
