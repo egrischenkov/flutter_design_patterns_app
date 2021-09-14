@@ -1,7 +1,7 @@
 import 'ingredients/ingredient.dart';
 
 class Burger {
-  late final List<Ingredient> _ingredients;
+  final List<Ingredient> _ingredients = [];
   late double price;
 
   void addIngredient(Ingredient ingredient) {
