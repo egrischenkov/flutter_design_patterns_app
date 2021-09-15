@@ -15,7 +15,7 @@ import '../../ui/pattern_widgets/command_pattern_widget.dart';
 import '../../ui/pattern_widgets/composite_pattern_widget.dart';
 import '../../ui/pattern_widgets/decorator_pattern_widget.dart';
 import '../../ui/pattern_widgets/facade_pattern_widget.dart';
-import '../../ui/pattern_widgets/factory_pattern_widget.dart';
+import '../../ui/pattern_widgets/factory_method/widgets/factory_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/fly_weight_pattern_widget.dart';
 import '../../ui/pattern_widgets/interpretator_pattern_widget.dart';
 import '../../ui/pattern_widgets/iterator_pattern_widget.dart';
