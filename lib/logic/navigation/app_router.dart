@@ -22,7 +22,7 @@ import '../../ui/pattern_widgets/iterator_pattern_widget.dart';
 import '../../ui/pattern_widgets/mediator_pattern_widget.dart';
 import '../../ui/pattern_widgets/memento_pattern_widget.dart';
 import '../../ui/pattern_widgets/observer_pattern_widget.dart';
-import '../../ui/pattern_widgets/protorype_pattern_widget.dart';
+import '../../ui/pattern_widgets/prototype/widgets/prototype_pattern_widget.dart';
 import '../../ui/pattern_widgets/proxy_pattern_widget.dart';
 import '../../ui/pattern_widgets/singleton_pattern_widget.dart';
 import '../../ui/pattern_widgets/state_pattern_widget.dart';

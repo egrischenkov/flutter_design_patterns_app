@@ -41,6 +41,7 @@ class MainPageState extends BasePageState {
     return Container(
       color: mainPageBackgroundColorLight,
       child: ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemCount: patternTypes.length,
         itemBuilder: (context, index) {
