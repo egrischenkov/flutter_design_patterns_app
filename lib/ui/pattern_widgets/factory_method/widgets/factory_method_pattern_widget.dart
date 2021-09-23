@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/app_colors.dart';
+import '../../../widgets/common_elevated_button.dart';
 import '../../../widgets/vertical_space.dart';
 import '../alert_dialogs/android_alert_dialog.dart';
 import '../alert_dialogs/ios_alert_dialog.dart';
@@ -42,12 +42,9 @@ class _FactoryMethodPatternWidgetState extends State<FactoryMethodPatternWidget>
             customDialogList: _dialogs,
           ),
           VerticalSpace(32),
-          ElevatedButton(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(mainPageBackgroundColorLight),
-                ),
-            child: Text('Show Dialog'),
-            onPressed: () => _showCustomDialog(context),
+          CommonElevatedButton(
+            title: 'Show Dialog',
+            onTap: () => _showCustomDialog(context),
           ),
         ],
       ),

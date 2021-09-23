@@ -61,13 +61,13 @@ class DetailsPageState extends BasePageState with SingleTickerProviderStateMixin
             labelPadding: EdgeInsets.all(8),
             tabs: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Tab(
                   text: 'Description',
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Tab(
                   text: 'Example',
                 ),

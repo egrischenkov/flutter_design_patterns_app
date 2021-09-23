@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../widgets/common_elevated_button.dart';
 
-import '../../../../utils/app_colors.dart';
 import '../../../widgets/horizontal_space.dart';
 import '../../../widgets/vertical_space.dart';
 import '../shapes/shape.dart';
@@ -44,20 +44,14 @@ class ShapeColumn extends StatelessWidget {
           ],
         ),
         VerticalSpace(),
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(mainPageBackgroundColorLight),
-          ),
-          onPressed: onRandomisePropertiesPressed,
-          child: Text('Randomise properties', style: TextStyle(fontSize: 20,)),
+        CommonElevatedButton(
+          onTap: onRandomisePropertiesPressed,
+          title: 'Randomise properties',
         ),
         VerticalSpace(),
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(mainPageBackgroundColorLight),
-          ),
-          onPressed: onClonePressed,
-          child: Text('Clone', style: TextStyle(fontSize: 20,)),
+        CommonElevatedButton(
+          title: 'Clone',
+          onTap: onClonePressed,
         ),
       ],
     );

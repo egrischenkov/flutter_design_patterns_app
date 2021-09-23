@@ -24,7 +24,7 @@ import '../../ui/pattern_widgets/memento_pattern_widget.dart';
 import '../../ui/pattern_widgets/observer_pattern_widget.dart';
 import '../../ui/pattern_widgets/prototype/widgets/prototype_pattern_widget.dart';
 import '../../ui/pattern_widgets/proxy_pattern_widget.dart';
-import '../../ui/pattern_widgets/singleton_pattern_widget.dart';
+import '../../ui/pattern_widgets/singleton/widgets/singleton_pattern_widget.dart';
 import '../../ui/pattern_widgets/state_pattern_widget.dart';
 import '../../ui/pattern_widgets/strategy_pattern_widget.dart';
 import '../../ui/pattern_widgets/template_method_pattern_widget.dart';
@@ -114,7 +114,7 @@ class AppRouter {
       case Navigation.proxyRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, ProxyPatternWidget());
       case Navigation.singletonRoute:
-        return _buildDesignPatternDetailsPageRoute(routeSettings, SingletonePatternWidget());
+        return _buildDesignPatternDetailsPageRoute(routeSettings, SingletonPatternWidget());
       case Navigation.stateRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, StatePatternWidget());
       case Navigation.strategyRoute:
