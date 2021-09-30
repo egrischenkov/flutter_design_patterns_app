@@ -8,7 +8,7 @@ import '../../ui/pages/init_page_state.dart';
 import '../../ui/pages/main_page_state.dart';
 import '../../ui/pattern_widgets/abstract_factory/widgets/abstract_factory_pattern_widget.dart';
 import '../../ui/pattern_widgets/adapter/widgets/adapter_pattern_widget.dart';
-import '../../ui/pattern_widgets/bridge_pattern_widget.dart';
+import '../../ui/pattern_widgets/bridge/widgets/bridge_pattern_widget.dart';
 import '../../ui/pattern_widgets/builder/builder_widgets/builder_pattern_widget.dart';
 import '../../ui/pattern_widgets/chain_of_responsibility_pattern_widget.dart';
 import '../../ui/pattern_widgets/command_pattern_widget.dart';
