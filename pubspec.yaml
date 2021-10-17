@@ -16,6 +16,7 @@ dependencies:
   flutter_markdown: ^0.6.6
   xml: ^5.3.0
   faker: ^2.0.0
+  font_awesome_flutter: ^9.1.0
 
 dev_dependencies:
   flutter_test:
