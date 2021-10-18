@@ -16,7 +16,7 @@ import '../../ui/pattern_widgets/composite/composite_pattern_widget.dart';
 import '../../ui/pattern_widgets/decorator/widgets/decorator_pattern_widget.dart';
 import '../../ui/pattern_widgets/facade/widgets/facade_pattern_widget.dart';
 import '../../ui/pattern_widgets/factory_method/widgets/factory_method_pattern_widget.dart';
-import '../../ui/pattern_widgets/fly_weight_pattern_widget.dart';
+import '../../ui/pattern_widgets/flyweight/widgets/flyweight_pattern_widget.dart';
 import '../../ui/pattern_widgets/interpretator_pattern_widget.dart';
 import '../../ui/pattern_widgets/iterator_pattern_widget.dart';
 import '../../ui/pattern_widgets/mediator_pattern_widget.dart';
@@ -98,7 +98,7 @@ class AppRouter {
       case Navigation.factoryMethodRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, FactoryMethodPatternWidget());
       case Navigation.flyweightRoute:
-        return _buildDesignPatternDetailsPageRoute(routeSettings, FlyWeightPatternWidget());
+        return _buildDesignPatternDetailsPageRoute(routeSettings, FlyweightPatternWidget());
       case Navigation.interpreterRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, InterpreterPatternWidget());
       case Navigation.iteratorRoute:
