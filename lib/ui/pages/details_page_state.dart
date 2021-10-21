@@ -6,12 +6,16 @@ import '../base_page_state.dart';
 import '../widgets/markdown_widget.dart';
 import '../widgets/vertical_space.dart';
 
-class DetailsPageState extends BasePageState with SingleTickerProviderStateMixin {
+class DetailsPageState extends BasePageState
+    with SingleTickerProviderStateMixin {
   final DesignPattern designPattern;
   final Widget innerWidget;
   final Color appBarColor;
 
-  DetailsPageState({required this.designPattern, required this.innerWidget, required this.appBarColor});
+  DetailsPageState(
+      {required this.designPattern,
+      required this.innerWidget,
+      required this.appBarColor});
 
   late final TabController _tabController;
 
@@ -33,17 +37,18 @@ class DetailsPageState extends BasePageState with SingleTickerProviderStateMixin
       mainAxisSize: MainAxisSize.min,
       children: [
         VerticalSpace(32),
-    Theme(
-    data: ThemeData(
-    splashColor: Colors.transparent,
-    highlightColor: Colors.transparent,
-    ),
+        Theme(
+          data: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
           child: TabBar(
             controller: _tabController,
             isScrollable: true,
             labelColor: tabLabelSelectedLightColor,
             labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            unselectedLabelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            unselectedLabelStyle:
+                TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             unselectedLabelColor: tabLabelUnselectedLightColor,
             indicatorSize: TabBarIndicatorSize.label,
             indicatorPadding: EdgeInsets.symmetric(
