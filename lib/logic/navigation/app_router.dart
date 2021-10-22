@@ -11,7 +11,7 @@ import '../../ui/pattern_widgets/adapter/widgets/adapter_pattern_widget.dart';
 import '../../ui/pattern_widgets/bridge/widgets/bridge_pattern_widget.dart';
 import '../../ui/pattern_widgets/builder/builder_widgets/builder_pattern_widget.dart';
 import '../../ui/pattern_widgets/chain_of_responsibility/widgets/chain_of_responsibility_pattern_widget.dart';
-import '../../ui/pattern_widgets/command_pattern_widget.dart';
+import '../../ui/pattern_widgets/command/widgets/command_pattern_widget.dart';
 import '../../ui/pattern_widgets/composite/composite_pattern_widget.dart';
 import '../../ui/pattern_widgets/decorator/widgets/decorator_pattern_widget.dart';
 import '../../ui/pattern_widgets/facade/widgets/facade_pattern_widget.dart';
