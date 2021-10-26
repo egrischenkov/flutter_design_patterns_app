@@ -70,10 +70,6 @@
           "route": "/command"
         },
         {
-          "id": "interpreter",
-          "route": "/interpreter"
-        },
-        {
           "id": "iterator",
           "route": "/iterator"
         },

@@ -17,8 +17,7 @@ import '../../ui/pattern_widgets/decorator/widgets/decorator_pattern_widget.dart
 import '../../ui/pattern_widgets/facade/widgets/facade_pattern_widget.dart';
 import '../../ui/pattern_widgets/factory_method/widgets/factory_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/flyweight/widgets/flyweight_pattern_widget.dart';
-import '../../ui/pattern_widgets/interpretator_pattern_widget.dart';
-import '../../ui/pattern_widgets/iterator_pattern_widget.dart';
+import '../../ui/pattern_widgets/iterator/widgets/iterator_pattern_widget.dart';
 import '../../ui/pattern_widgets/mediator_pattern_widget.dart';
 import '../../ui/pattern_widgets/memento_pattern_widget.dart';
 import '../../ui/pattern_widgets/observer_pattern_widget.dart';
@@ -99,8 +98,6 @@ class AppRouter {
         return _buildDesignPatternDetailsPageRoute(routeSettings, FactoryMethodPatternWidget());
       case Navigation.flyweightRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, FlyweightPatternWidget());
-      case Navigation.interpreterRoute:
-        return _buildDesignPatternDetailsPageRoute(routeSettings, InterpreterPatternWidget());
       case Navigation.iteratorRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, IteratorPatternWidget());
       case Navigation.mediatorRoute:
@@ -144,7 +141,6 @@ class Navigation {
   static const String facadeRoute = '/facade';
   static const String factoryMethodRoute = '/factory_method';
   static const String flyweightRoute = '/flyweight';
-  static const String interpreterRoute = '/interpreter';
   static const String iteratorRoute = '/iterator';
   static const String mediatorRoute = '/mediator';
   static const String mementoRoute = '/memento';
