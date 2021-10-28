@@ -18,7 +18,7 @@ import '../../ui/pattern_widgets/facade/widgets/facade_pattern_widget.dart';
 import '../../ui/pattern_widgets/factory_method/widgets/factory_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/flyweight/widgets/flyweight_pattern_widget.dart';
 import '../../ui/pattern_widgets/iterator/widgets/iterator_pattern_widget.dart';
-import '../../ui/pattern_widgets/mediator_pattern_widget.dart';
+import '../../ui/pattern_widgets/mediator/widgets/mediator_pattern_widget.dart';
 import '../../ui/pattern_widgets/memento_pattern_widget.dart';
 import '../../ui/pattern_widgets/observer_pattern_widget.dart';
 import '../../ui/pattern_widgets/prototype/widgets/prototype_pattern_widget.dart';
