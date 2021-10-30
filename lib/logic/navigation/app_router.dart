@@ -24,7 +24,7 @@ import '../../ui/pattern_widgets/observer/widgets/observer_pattern_widget.dart';
 import '../../ui/pattern_widgets/prototype/widgets/prototype_pattern_widget.dart';
 import '../../ui/pattern_widgets/proxy/widgets/proxy_pattern_widget.dart';
 import '../../ui/pattern_widgets/singleton/widgets/singleton_pattern_widget.dart';
-import '../../ui/pattern_widgets/state_pattern_widget.dart';
+import '../../ui/pattern_widgets/state/widgets/state_pattern_widget.dart';
 import '../../ui/pattern_widgets/strategy_pattern_widget.dart';
 import '../../ui/pattern_widgets/template_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/visitor_pattern_widget.dart';
