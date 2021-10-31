@@ -26,7 +26,7 @@ import '../../ui/pattern_widgets/proxy/widgets/proxy_pattern_widget.dart';
 import '../../ui/pattern_widgets/singleton/widgets/singleton_pattern_widget.dart';
 import '../../ui/pattern_widgets/state/widgets/state_pattern_widget.dart';
 import '../../ui/pattern_widgets/strategy/widgets/strategy_pattern_widget.dart';
-import '../../ui/pattern_widgets/template_method_pattern_widget.dart';
+import '../../ui/pattern_widgets/template_method/widgets/template_method_pattern_widget.dart';
 import '../../ui/pattern_widgets/visitor_pattern_widget.dart';
 
 class AppRouter {
@@ -150,6 +150,6 @@ class Navigation {
   static const String singletonRoute = '/singleton';
   static const String stateRoute = '/state';
   static const String strategyRoute = '/strategy';
-  static const String templateMethodRoute = '/template-method';
+  static const String templateMethodRoute = '/template_method';
   static const String visitorRoute = '/visitor';
 }
