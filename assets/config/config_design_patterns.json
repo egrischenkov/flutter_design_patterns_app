@@ -1,0 +1,107 @@
+{
+  "pattern_types": [
+    {
+      "id": "creational",
+      "patterns": [
+        {
+          "id": "abstract_factory",
+          "route": "/abstract_factory"
+        },
+        {
+          "id": "builder",
+          "route": "/builder"
+        },
+        {
+          "id": "factory_method",
+          "route": "/factory_method"
+        },
+        {
+          "id": "prototype",
+          "route": "/prototype"
+        },
+        {
+          "id": "singleton",
+          "route": "/singleton"
+        }
+      ]
+    },
+    {
+      "id": "structural",
+      "patterns": [
+        {
+          "id": "adapter",
+          "route": "/adapter"
+        },
+        {
+          "id": "bridge",
+          "route": "/bridge"
+        },
+        {
+          "id": "composite",
+          "route": "/composite"
+        },
+        {
+          "id": "decorator",
+          "route": "/decorator"
+        },
+        {
+          "id": "facade",
+          "route": "/facade"
+        },
+        {
+          "id": "flyweight",
+          "route": "/flyweight"
+        },
+        {
+          "id": "proxy",
+          "route": "/proxy"
+        }
+      ]
+    },
+    {
+      "id": "behavioral",
+      "patterns": [
+        {
+          "id": "chain_of_responsibility",
+          "route": "/chain_of_responsibility"
+        },
+        {
+          "id": "command",
+          "route": "/command"
+        },
+        {
+          "id": "iterator",
+          "route": "/iterator"
+        },
+        {
+          "id": "mediator",
+          "route": "/mediator"
+        },
+        {
+          "id": "memento",
+          "route": "/memento"
+        },
+        {
+          "id": "observer",
+          "route": "/observer"
+        },
+        {
+          "id": "state",
+          "route": "/state"
+        },
+        {
+          "id": "strategy",
+          "route": "/strategy"
+        },
+        {
+          "id": "template_method",
+          "route": "/template_method"
+        },
+        {
+          "id": "visitor",
+          "route": "/visitor"
+        }
+      ]
+    }
+  ]
+}

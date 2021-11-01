@@ -11,3 +11,12 @@ analyzer:
     avoid_function_literals_in_foreach_calls: ignore
   exclude:
     - lib/**/*.g.dart
+
+linter:
+  rules:
+    one_member_abstracts: false
+    use_setters_to_change_properties: false
+
+dart_code_metrics:
+  rules:
+    - prefer-conditional-expressions

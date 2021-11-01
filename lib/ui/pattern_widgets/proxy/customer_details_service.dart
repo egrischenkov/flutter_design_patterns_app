@@ -1,0 +1,22 @@
+import 'package:faker/faker.dart';
+import 'customer/customer_details.dart';
+
+import 'i_customer_details_service.dart';
+
+class CustomerDetailsService implements ICustomerDetailsService {
+  @override
+  Future<CustomerDetails> getCustomerDetails(String id) {
+    return Future.delayed(const Duration(seconds: 3), () {
+      final email = faker.internet.email();
+      final hobby = faker.sport.name();
+      final position = faker.job.title();
+
+      return CustomerDetails(
+        id,
+        email,
+        hobby,
+        position,
+      );
+    });
+  }
+}
