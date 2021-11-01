@@ -27,7 +27,7 @@ import '../../ui/pattern_widgets/singleton/widgets/singleton_pattern_widget.dart
 import '../../ui/pattern_widgets/state/widgets/state_pattern_widget.dart';
 import '../../ui/pattern_widgets/strategy/widgets/strategy_pattern_widget.dart';
 import '../../ui/pattern_widgets/template_method/widgets/template_method_pattern_widget.dart';
-import '../../ui/pattern_widgets/visitor_pattern_widget.dart';
+import '../../ui/pattern_widgets/visitor/widgets/visitor_pattern_widget.dart';
 
 class AppRouter {
   const AppRouter._();

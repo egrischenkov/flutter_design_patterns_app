@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import '../../../widgets/common_elevated_button.dart';
+
+class FilesDialog extends StatelessWidget {
+  final String filesText;
+
+  const FilesDialog({
+    required this.filesText,
+  });
+
+  void closeDialog(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Files'),
+      content: ScrollConfiguration(
+        behavior: const ScrollBehavior(),
+        child: SingleChildScrollView(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Text(filesText),
+          ),
+        ),
+      ),
+      actions: <Widget>[
+        CommonElevatedButton(
+          onTap: () => closeDialog(context),
+          title: 'Close',
+        ),
+      ],
+    );
+  }
+}
