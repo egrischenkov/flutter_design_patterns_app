@@ -32,7 +32,7 @@ class DetailsPageState extends BasePageState
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

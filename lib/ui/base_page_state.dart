@@ -6,7 +6,7 @@ import 'widgets/appbar/curved_app_bar_widget.dart';
 import 'widgets/appbar/standard_app_bar_widget.dart';
 
 abstract class BasePageState extends State<PageStateFactory> {
-  Widget buildBody();
+  Widget buildBody(BuildContext context);
 
   Color? backgroundColor() => Colors.white;
 
@@ -37,7 +37,7 @@ abstract class BasePageState extends State<PageStateFactory> {
           mainAxisSize: MainAxisSize.min,
           children: [
             appBar() ?? SizedBox.shrink(),
-            Expanded(child: buildBody()),
+            Expanded(child: buildBody(context)),
           ],
         ),
       ),

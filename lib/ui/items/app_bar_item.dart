@@ -5,8 +5,9 @@ import '../widgets/vertical_space.dart';
 class AppBarItem extends StatelessWidget {
   final Widget widget;
   final String title;
+  final VoidCallback onTap;
 
-  AppBarItem(this.widget, this.title);
+  AppBarItem(this.widget, this.title, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class AppBarItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: () => print('onTap'),
+        onTap: onTap,
         child: Padding(
           padding: EdgeInsets.all(8),
           child: Column(
