@@ -7,12 +7,6 @@ import '../../utils/utils.dart';
 import '../base_page_state.dart';
 import '../items/curved_list_item.dart';
 
-enum ListItemColors {
-  firstColor,
-  secondColor,
-  thirdColor,
-}
-
 class MainPageState extends BasePageState {
   final List<DesignPatternType> patternTypes;
 
@@ -37,7 +31,7 @@ class MainPageState extends BasePageState {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Container(
       color: mainPageBackgroundColorLight,
       child: ListView.builder(

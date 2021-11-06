@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../entity/design_pattern.dart';
 import '../../entity/design_pattern_type.dart';
+import '../../logic/provider/favorite_model.dart';
 import '../../utils/utils.dart';
 import '../base_page_state.dart';
 import '../items/standard_list_item.dart';
@@ -21,8 +24,19 @@ class CategoryPageState extends BasePageState {
   @override
   String getTitle() => designPatternType.id;
 
+  bool _isFavorite(FavoriteModel favoriteModel, DesignPattern pattern) {
+    return favoriteModel.isFavorite(pattern);
+  }
+
+  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel, DesignPattern pattern) {
+    return favoriteModel.isFavorite(pattern)
+        ? favoriteModel.removeFromFavorite(context, pattern)
+        : favoriteModel.addToFavorite(context, pattern);
+  }
+
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
+    final favoriteModel = context.watch<FavoriteModel>();
     return Container(
       color: color,
       child: ListView.separated(
@@ -35,9 +49,18 @@ class CategoryPageState extends BasePageState {
             onTap: () {
               navigate(
                 '/${designPattern.id.toString()}',
-                argument: {"design_pattern": designPattern, "app_bar_color": color},
+                argument: {
+                  "design_pattern": designPattern,
+                  "app_bar_color": color,
+                },
               );
             },
+            onFavoriteTap: () async => await _onFavoriteTap(
+              context,
+              favoriteModel,
+              designPattern,
+            ),
+            isFavorite: _isFavorite(favoriteModel, designPattern),
           );
         },
         separatorBuilder: (context, _) => VerticalSpace(),

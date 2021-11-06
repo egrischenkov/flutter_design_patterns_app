@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../logic/navigation/app_router.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/utils.dart';
 import '../../items/app_bar_item.dart';
+import '../heart_animated_widget.dart';
 import '../horizontal_space.dart';
 import '../vertical_space.dart';
 
@@ -47,17 +51,24 @@ class CurvedAppBarWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     AppBarItem(
-                        Switch(
-                          onChanged: (_) {},
-                          value: true,
-                        ),
-                        'Theme'),
+                      Switch(
+                        onChanged: (_) {},
+                        value: true,
+                      ),
+                      'Theme',
+                      () => {print('onTap')},
+                    ),
                     HorizontalSpace(32),
                     AppBarItem(
-                        Icon(
-                          Icons.favorite_border,
-                        ),
-                        'Favorite'),
+                      HeartAnimatedWidget(),
+                      'Favorite',
+                      () {
+                        navigate(
+                          Navigation.favoriteRoute,
+                          argument: {'color': favoritePageBackgroundColorLight},
+                        );
+                      },
+                    ),
                   ],
                 ),
               ],

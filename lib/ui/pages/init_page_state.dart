@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../entity/repository/design_patterns_repository.dart';
-
-import '../../logic/navigation/app_router.dart';
-import '../../utils/utils.dart';
+import '../../initializer.dart';
 import '../base_page_state.dart';
 
 class InitPageState extends BasePageState {
-  late DesignPatternsRepository repository;
+  final Initializer _initializer = Initializer();
 
   @override
   void initState() {
-    repository = DesignPatternsRepository();
-    repository.init().then((patternsConfig) {
-      final patternTypes = patternsConfig.patternTypes;
-      navigate(Navigation.mainRoute, replace: true, argument: patternTypes);
-    });
+    _initializer.init(context);
     super.initState();
   }
 
@@ -25,7 +18,7 @@ class InitPageState extends BasePageState {
   String? getTitle() => null;
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Center(
       child: FlutterLogo(),
     );
