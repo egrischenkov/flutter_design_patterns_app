@@ -14,6 +14,9 @@ class FavoritePageState extends BasePageState {
   FavoritePageState({required this.color});
 
   @override
+  bool isFavoritePage() => true;
+
+  @override
   bool isCurvedAppBar() => false;
 
   @override
@@ -22,41 +25,56 @@ class FavoritePageState extends BasePageState {
   @override
   String? getTitle() => 'Favorite';
 
-  Future<void> _onFavoriteTap(FavoriteModel favoriteModel, DesignPattern pattern) {
-    return favoriteModel.removeFromFavorite(pattern);
+  Future<void> _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel,
+      DesignPattern pattern) {
+    return favoriteModel.removeFromFavorite(context, pattern);
   }
 
   @override
   Widget buildBody(BuildContext context) {
     final favoriteModel = context.watch<FavoriteModel>();
+    final favoritePatterns = favoriteModel.favoritePatterns;
 
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       color: color,
-      child: ListView.separated(
-        padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-        itemCount: favoriteModel.favoritePatterns.length,
-        itemBuilder: (context, index) {
-          final designPattern = favoriteModel.favoritePatterns[index];
-          return StandardListItem(
-            designPattern: designPattern,
-            onTap: ()  {
-              navigate(
-                '/${designPattern.id.toString()}',
-                argument: {
-                  "design_pattern": designPattern,
-                  "app_bar_color": color,
-                },
-                replace: true,
-              );
-            },
-            onFavoriteTap: () async => await _onFavoriteTap(
-              favoriteModel,
-              designPattern,
+      child: favoritePatterns.isEmpty
+          ? Center(
+              child: Text(
+                'Oops, no favorite patterns yet!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            )
+          : ListView.separated(
+              padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              itemCount: favoritePatterns.length,
+              itemBuilder: (context, index) {
+                final designPattern = favoritePatterns[index];
+                return StandardListItem(
+                  designPattern: designPattern,
+                  onTap: () {
+                    navigate(
+                      '/${designPattern.id.toString()}',
+                      argument: {
+                        "design_pattern": designPattern,
+                        "app_bar_color": color,
+                      },
+                      replace: true,
+                    );
+                  },
+                  onFavoriteTap: () async => await _onFavoriteTap(
+                    context,
+                    favoriteModel,
+                    designPattern,
+                  ),
+                );
+              },
+              separatorBuilder: (context, _) => VerticalSpace(),
             ),
-          );
-        },
-        separatorBuilder: (context, _) => VerticalSpace(),
-      ),
     );
   }
 }

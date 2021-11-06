@@ -28,10 +28,10 @@ class CategoryPageState extends BasePageState {
     return favoriteModel.isFavorite(pattern);
   }
 
-  Future _onFavoriteTap(FavoriteModel favoriteModel, DesignPattern pattern) {
+  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel, DesignPattern pattern) {
     return favoriteModel.isFavorite(pattern)
-        ? favoriteModel.removeFromFavorite(pattern)
-        : favoriteModel.addToFavorite(pattern);
+        ? favoriteModel.removeFromFavorite(context, pattern)
+        : favoriteModel.addToFavorite(context, pattern);
   }
 
   @override
@@ -56,6 +56,7 @@ class CategoryPageState extends BasePageState {
               );
             },
             onFavoriteTap: () async => await _onFavoriteTap(
+              context,
               favoriteModel,
               designPattern,
             ),

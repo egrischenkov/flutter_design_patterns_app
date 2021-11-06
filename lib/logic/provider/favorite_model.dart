@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern.dart';
 import '../database/database_provider.dart';
@@ -11,17 +12,26 @@ class FavoriteModel extends ChangeNotifier {
     return favoritePatterns;
   }
 
-  Future<void> addToFavorite(DesignPattern pattern) async {
+  void _showSnackBar(BuildContext context, String text) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(text),
+      duration: Duration(milliseconds: 1200),
+    ));
+  }
+
+  Future<void> addToFavorite(BuildContext context, DesignPattern pattern) async {
     await DatabaseProvider.instance.addFavoriteDesignPattern(pattern);
     favoritePatterns.add(pattern);
+    _showSnackBar(context, '${pattern.id} add to favorite');
     notifyListeners();
   }
 
-  Future<void> removeFromFavorite(DesignPattern pattern) async {
+  Future<void> removeFromFavorite(BuildContext context, DesignPattern pattern) async {
     await DatabaseProvider.instance.removeFromFavoriteDesignPattern(pattern);
     favoritePatterns.removeWhere((favoritePattern) {
       return favoritePattern.id == pattern.id;
     });
+    _showSnackBar(context, '${pattern.id} remove from favorite');
     notifyListeners();
   }
 

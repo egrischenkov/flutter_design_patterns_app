@@ -70,15 +70,6 @@ class DatabaseProvider {
     return favoritePatternsList;
   }
 
-  Future<bool> isFavorite(DesignPattern designPattern) async {
-    final rawList = await _database!.rawQuery('SELECT is_favorite '
-        'FROM favorite '
-        'WHERE is_favorite = 1 AND pattern_name = "${designPattern.id}"');
-    final isFavorite = rawList.isNotEmpty ? true : false;
-
-    return isFavorite;
-  }
-
   Future addFavoriteDesignPattern(DesignPattern pattern) {
     return _database!.execute('UPDATE favorite '
         'SET is_favorite = 1 '

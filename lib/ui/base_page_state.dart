@@ -14,6 +14,8 @@ abstract class BasePageState extends State<PageStateFactory> {
 
   String? getTitle();
 
+  bool isFavoritePage() => false;
+
   Widget? appBar() {
     return isCurvedAppBar()
         ? CurvedAppBarWidget(
@@ -24,6 +26,7 @@ abstract class BasePageState extends State<PageStateFactory> {
         : StandardAppBarWidget(
             backgroundColor: backgroundColor()!,
             title: getTitle()!,
+            isFavoritePage: isFavoritePage(),
           );
   }
 

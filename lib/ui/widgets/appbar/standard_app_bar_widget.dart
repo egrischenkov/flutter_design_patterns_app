@@ -8,8 +8,12 @@ import '../horizontal_space.dart';
 class StandardAppBarWidget extends StatelessWidget {
   final Color backgroundColor;
   final String title;
+  final bool isFavoritePage;
 
-  StandardAppBarWidget({required this.title, required this.backgroundColor});
+  StandardAppBarWidget(
+      {required this.title,
+      required this.backgroundColor,
+      this.isFavoritePage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +29,16 @@ class StandardAppBarWidget extends StatelessWidget {
           onChanged: (_) {},
         ),
         HorizontalSpace(32),
-        IconButton(
-          icon: Icon(Icons.favorite_border),
-          onPressed: () {
-            navigate(
-              Navigation.favoriteRoute,
-              argument: {'color': favoritePageBackgroundColorLight},
-            );
-          },
-        ),
+        if (!isFavoritePage)
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () {
+              navigate(
+                Navigation.favoriteRoute,
+                argument: {'color': favoritePageBackgroundColorLight},
+              );
+            },
+          ),
         HorizontalSpace(32),
       ],
     );

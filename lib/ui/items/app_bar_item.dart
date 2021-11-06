@@ -12,6 +12,7 @@ class AppBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
@@ -22,10 +23,7 @@ class AppBarItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 40,
-                child: FittedBox(child: widget),
-              ),
+              widget,
               VerticalSpace(),
               Text(
                 title,

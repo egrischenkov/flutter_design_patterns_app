@@ -54,6 +54,7 @@ class StandardListItem extends StatelessWidget {
                 child: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_outline,
                   color: Colors.red,
+                  size: 30,
                 ),
                 onTap: onFavoriteTap,
               ),

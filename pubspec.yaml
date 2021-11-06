@@ -1,6 +1,6 @@
 name: flutter_design_patterns
 description: App which can help to learning design patterns and implement them with Flutter.
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
