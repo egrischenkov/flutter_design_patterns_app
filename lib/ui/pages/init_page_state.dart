@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../initializer.dart';
+import '../../utils/app_colors.dart';
 import '../base_page_state.dart';
 
 class InitPageState extends BasePageState {
@@ -11,6 +13,8 @@ class InitPageState extends BasePageState {
     super.initState();
   }
 
+  Color? backgroundColor() => mainPageBackgroundColorLight;
+
   @override
   Widget? appBar() => null;
 
@@ -19,8 +23,8 @@ class InitPageState extends BasePageState {
 
   @override
   Widget buildBody(BuildContext context) {
-    return Center(
-      child: FlutterLogo(),
+    return Container(
+      color: mainPageBackgroundColorLight,
     );
   }
 }
