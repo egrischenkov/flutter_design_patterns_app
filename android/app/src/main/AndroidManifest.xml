@@ -4,7 +4,7 @@
     <!-- Rename label parameter as you needed -->
    <application
         android:label="Flutter Design Patterns"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
