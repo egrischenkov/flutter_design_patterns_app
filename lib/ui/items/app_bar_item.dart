@@ -23,7 +23,7 @@ class AppBarItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              widget,
+              SizedBox(height: 40 , child: FittedBox(child: widget)),
               VerticalSpace(),
               Text(
                 title,

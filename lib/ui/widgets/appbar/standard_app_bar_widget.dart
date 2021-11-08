@@ -1,6 +1,9 @@
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../logic/navigation/app_router.dart';
+import '../../../logic/provider/theme_model.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/utils.dart';
 import '../horizontal_space.dart';
@@ -17,6 +20,7 @@ class StandardAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeModel = context.watch<ThemeModel>();
     return AppBar(
       backgroundColor: backgroundColor,
       title: Text(
@@ -24,9 +28,15 @@ class StandardAppBarWidget extends StatelessWidget {
         style: TextStyle(color: appBarTextLightColor),
       ),
       actions: [
-        Switch(
-          value: true,
-          onChanged: (_) {},
+        SizedBox(
+          height: 40,
+          width: 60,
+          child: FittedBox(
+            child: DayNightSwitcher(
+              isDarkModeEnabled: !themeModel.isLight,
+              onStateChanged: (isDarkModeEnabled) => themeModel.setIsLight(!isDarkModeEnabled),
+            ),
+          ),
         ),
         HorizontalSpace(32),
         if (!isFavoritePage)

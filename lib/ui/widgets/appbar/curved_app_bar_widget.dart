@@ -1,6 +1,9 @@
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../logic/navigation/app_router.dart';
+import '../../../logic/provider/theme_model.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/utils.dart';
 import '../../items/app_bar_item.dart';
@@ -21,6 +24,8 @@ class CurvedAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeModel = context.watch<ThemeModel>();
+
     return Material(
       child: Container(
         color: backgroundColor,
@@ -51,9 +56,10 @@ class CurvedAppBarWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     AppBarItem(
-                      Switch(
-                        onChanged: (_) {},
-                        value: true,
+                      DayNightSwitcher(
+                        isDarkModeEnabled: !themeModel.isLight,
+                        onStateChanged: (isDarkModeEnabled) =>
+                            themeModel.setIsLight(!isDarkModeEnabled),
                       ),
                       'Theme',
                       () => {print('onTap')},

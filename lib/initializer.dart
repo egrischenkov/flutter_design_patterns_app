@@ -6,6 +6,7 @@ import 'entity/design_pattern_type.dart';
 import 'entity/repository/design_patterns_repository.dart';
 import 'logic/database/database_provider.dart';
 import 'logic/navigation/app_router.dart';
+import 'logic/prefs/theme_prefs.dart';
 import 'logic/provider/favorite_model.dart';
 import 'utils/utils.dart';
 
@@ -13,7 +14,8 @@ class Initializer {
   DesignPatternsRepository repository = DesignPatternsRepository();
 
   List<DesignPattern> _convertPatternTypesToPatternsList(
-      List<DesignPatternType> types) {
+    List<DesignPatternType> types,
+  ) {
     var patterns = <DesignPattern>[];
 
     for (var type in types) {
@@ -30,6 +32,9 @@ class Initializer {
       final patterns = _convertPatternTypesToPatternsList(patternTypes);
 
       await DatabaseProvider.instance.initDatabase(patterns);
+      //TODO: (Egor) late initialization of shared preferences
+      await ThemePrefs.instance.initPrefs();
+
       await context.read<FavoriteModel>().loadFavoriteDesignPatterns();
 
       navigate(Navigation.mainRoute, replace: true, argument: patternTypes);
