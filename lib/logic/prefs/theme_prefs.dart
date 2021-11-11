@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'prefs.dart';
 
 class ThemePrefs extends Prefs {
@@ -15,11 +17,15 @@ class ThemePrefs extends Prefs {
     return _themePrefs!;
   }
 
-  Future<bool> setTheme(bool value) {
-    return setBool(themeKey, value);
+  Future<bool> setTheme(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    return setBool(prefs, themeKey, value);
   }
 
-  bool getTheme() {
-    return getBool(themeKey, false);
+  Future<bool> getTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    return getBool(prefs, themeKey, false);
   }
 }

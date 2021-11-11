@@ -50,7 +50,6 @@ class AppRouter {
         concreteState: () => DetailsPageState(
           designPattern: navigateArgument["design_pattern"],
           innerWidget: innerWidget,
-          appBarColor: navigateArgument["app_bar_color"],
         ),
       ),
     );
@@ -73,7 +72,6 @@ class AppRouter {
           builder: (context) => PageStateFactory(
             concreteState: () => CategoryPageState(
               designPatternType: navigateArgument['pattern_type'],
-              color: navigateArgument['color'],
             ),
           ),
         );

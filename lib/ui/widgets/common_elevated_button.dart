@@ -11,7 +11,7 @@ class CommonElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(mainPageBackgroundColorLight),
+        backgroundColor: MaterialStateProperty.all(mainBackgroundColor),
       ),
       onPressed: onTap,
       child: Text(title, style: TextStyle(fontSize: 20,)),

@@ -48,7 +48,7 @@ class CurvedAppBarWidget extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: textColor, fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 VerticalSpace(32),
                 Row(
@@ -62,7 +62,7 @@ class CurvedAppBarWidget extends StatelessWidget {
                             themeModel.setIsLight(!isDarkModeEnabled),
                       ),
                       'Theme',
-                      () => {print('onTap')},
+                      () => themeModel.setIsLight(!themeModel.isLight),
                     ),
                     HorizontalSpace(32),
                     AppBarItem(
@@ -71,7 +71,7 @@ class CurvedAppBarWidget extends StatelessWidget {
                       () {
                         navigate(
                           Navigation.favoriteRoute,
-                          argument: {'color': favoritePageBackgroundColorLight},
+                          argument: {'color': mainBackgroundColor},
                         );
                       },
                     ),

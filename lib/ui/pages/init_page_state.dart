@@ -13,7 +13,7 @@ class InitPageState extends BasePageState {
     super.initState();
   }
 
-  Color? backgroundColor() => mainPageBackgroundColorLight;
+  Color? backgroundColor() => mainBackgroundColor;
 
   @override
   Widget? appBar() => null;
@@ -24,7 +24,7 @@ class InitPageState extends BasePageState {
   @override
   Widget buildBody(BuildContext context) {
     return Container(
-      color: mainPageBackgroundColorLight,
+      color: mainBackgroundColor,
     );
   }
 }

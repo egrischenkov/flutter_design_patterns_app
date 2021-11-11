@@ -34,7 +34,9 @@ class StandardAppBarWidget extends StatelessWidget {
           child: FittedBox(
             child: DayNightSwitcher(
               isDarkModeEnabled: !themeModel.isLight,
-              onStateChanged: (isDarkModeEnabled) => themeModel.setIsLight(!isDarkModeEnabled),
+              onStateChanged: (isDarkModeEnabled) {
+                themeModel.setIsLight(!isDarkModeEnabled);
+              }
             ),
           ),
         ),
@@ -45,7 +47,7 @@ class StandardAppBarWidget extends StatelessWidget {
             onPressed: () {
               navigate(
                 Navigation.favoriteRoute,
-                argument: {'color': favoritePageBackgroundColorLight},
+                argument: {'color': mainBackgroundColor},
               );
             },
           ),

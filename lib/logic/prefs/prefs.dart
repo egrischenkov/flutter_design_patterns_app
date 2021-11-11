@@ -1,33 +1,28 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Prefs {
-  late SharedPreferences sharedPrefs;
 
-  Future<void> initPrefs() async {
-    sharedPrefs = await SharedPreferences.getInstance();
-  }
-
-  String getString(String key, String defaultValue) {
+  String getString(SharedPreferences sharedPrefs, String key, String defaultValue) {
     return sharedPrefs.getString(key) ?? defaultValue;
   }
 
-  Future<bool> setString(String key, String value) {
+  Future<bool> setString(SharedPreferences sharedPrefs, String key, String value) {
     return sharedPrefs.setString(key, value);
   }
 
-  int getInt(String key, int defaultValue) {
+  int getInt(SharedPreferences sharedPrefs, String key, int defaultValue) {
     return sharedPrefs.getInt(key) ?? defaultValue;
   }
 
-  Future<bool> setInt(String key, int value) {
+  Future<bool> setInt(SharedPreferences sharedPrefs, String key, int value) {
     return sharedPrefs.setInt(key, value);
   }
 
-  bool getBool(String key, bool defaultValue) {
+  bool getBool(SharedPreferences sharedPrefs, String key, bool defaultValue) {
     return sharedPrefs.getBool(key) ?? defaultValue;
   }
 
-  Future<bool> setBool(String key, bool value) {
+  Future<bool> setBool(SharedPreferences sharedPrefs, String key, bool value) {
     return sharedPrefs.setBool(key, value);
   }
 }

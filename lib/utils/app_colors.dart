@@ -4,13 +4,26 @@ import 'package:flutter/material.dart';
 
 bool isLightModeActive = true;
 
-const mainPageBackgroundColorLight = Color(0xFF8E93B3);
+const mainBackgroundColorLight = Colors.white;
+const mainBackgroundColorDark = Color(0xFF8E93B3);
 
-const favoritePageBackgroundColorLight = Color(0xFF8E93B3);
+const listItemBackgroundColorLight = Colors.white;
+const listItemBackgroundColorDark = Color(0xFF8E93B3);
 
-const firstListTileColorLight = Color(0xFFD96F9F);
-const secondListTileColorLight = Color(0xFF8541B0);
-const thirdListTileColorLight = Color(0xFF150428);
+const firstListTileColorLight = Color(0xFFF3D250);
+const firstListTileColorDark = Color(0xFFD96F9F);
+
+const secondListTileColorLight = Color(0xFF90CCF4);
+const secondListTileColorDark = Color(0xFF8541B0);
+
+const thirdListTileColorLight = Color(0xFFF78888);
+const thirdListTileColorDark = Color(0xFF150428);
+
+const heartIconColorLight = Color(0xFFF78888);
+const heartIconColorDark = Color(0xFFD96F9F);
+
+const heartIconListTileColorLight = Color(0xFFF78888);
+const heartIconListTileColorDark = Colors.white;
 
 const appBarColorLight = Colors.white;
 
@@ -27,40 +40,79 @@ const appBarTextLightColor = Colors.white;
 const tabLabelSelectedLightColor = Colors.white;
 const tabLabelUnselectedLightColor = Colors.black;
 
+const textColorLight = Colors.black87;
+const textColorDark = Colors.white;
+
 final tabGradientColorLight = [
-  mainPageBackgroundColorLight.withOpacity(0.9),
-  mainPageBackgroundColorLight,
+  mainBackgroundColorDark.withOpacity(0.9),
+  mainBackgroundColorDark,
 ];
 
+final tabGradientColorDark = [
+  mainBackgroundColorLight.withOpacity(0.9),
+  mainBackgroundColorLight,
+];
+
+Color get mainBackgroundColor {
+  return isLightModeActive ? mainBackgroundColorLight : mainBackgroundColorDark;
+}
+
+Color get firstListTileColor {
+  return isLightModeActive ? firstListTileColorLight : firstListTileColorDark;
+}
+
+Color get secondListTileColor {
+  return isLightModeActive ? secondListTileColorLight : secondListTileColorDark;
+}
+
+Color get thirdListTileColor {
+  return isLightModeActive ? thirdListTileColorLight : thirdListTileColorDark;
+}
+
+Color get heartIconColor {
+  return isLightModeActive ? heartIconColorLight : heartIconColorDark;
+}
+
+Color get textColor {
+  return isLightModeActive ? textColorLight : textColorDark;
+}
+
+Color get heartIconListTileColor {
+  return isLightModeActive
+      ? heartIconListTileColorLight
+      : heartIconListTileColorDark;
+}
+
+Color get listItemBackgroundColor {
+  return isLightModeActive
+      ? listItemBackgroundColorLight
+      : listItemBackgroundColorDark;
+}
+
+List<Color> get tabGradientColor {
+  return isLightModeActive ? tabGradientColorLight : tabGradientColorDark;
+}
 
 ThemeData dayTheme(BuildContext context) => ThemeData(
-  primarySwatch: Colors.blue,
-  appBarTheme: Theme.of(context)
-      .appBarTheme
-      .copyWith(brightness: Brightness.light),
-);
+      primarySwatch: Colors.blue,
+      appBarTheme:
+          Theme.of(context).appBarTheme.copyWith(brightness: Brightness.light),
+    );
 
 ThemeData nightTheme(BuildContext context) => ThemeData(
-  primarySwatch: Colors.blue,
-  appBarTheme: Theme.of(context)
-      .appBarTheme
-      .copyWith(brightness: Brightness.light),
-);
+      primarySwatch: Colors.blue,
+      appBarTheme:
+          Theme.of(context).appBarTheme.copyWith(brightness: Brightness.light),
+    );
 // final dayTheme = ThemeData(
 //   colorScheme: ColorScheme.light(
 //     primary: accentColorLight,
 //     secondary: appBarColorLight,
 //   ),
-//   floatingActionButtonTheme: FloatingActionButtonThemeData(
-//     backgroundColor: buttonLightColor,
-//     foregroundColor: Colors.white,
-//     splashColor: buttonSplashColor,
-//   ),
 //   brightness: Brightness.light,
 //   scaffoldBackgroundColor: backgroundColor,
 //   canvasColor: backgroundLightColor,
 //   appBarTheme: AppBarTheme(
-//     color: backgroundLightColor,
 //     systemOverlayStyle: SystemUiOverlayStyle(
 //       statusBarBrightness: Brightness.light,
 //       systemNavigationBarIconBrightness: Brightness.light,
@@ -81,16 +133,10 @@ ThemeData nightTheme(BuildContext context) => ThemeData(
 //     primary: accentColorDark,
 //     secondary: appBarColorDark,
 //   ),
-//   floatingActionButtonTheme: FloatingActionButtonThemeData(
-//     backgroundColor: buttonDarkColor,
-//     foregroundColor: Colors.white,
-//     splashColor: buttonSplashColor,
-//   ),
 //   brightness: Brightness.dark,
 //   canvasColor: backgroundDarkColor,
 //   scaffoldBackgroundColor: backgroundDarkColor,
 //   appBarTheme: AppBarTheme(
-//     color: backgroundDarkColor,
 //     systemOverlayStyle: SystemUiOverlayStyle(
 //       statusBarBrightness: Brightness.dark,
 //       systemNavigationBarIconBrightness: Brightness.dark,

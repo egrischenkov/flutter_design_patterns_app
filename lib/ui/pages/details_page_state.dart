@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/utils.dart';
 import '../base_page_state.dart';
 import '../widgets/markdown_widget.dart';
 import '../widgets/vertical_space.dart';
@@ -10,20 +11,21 @@ class DetailsPageState extends BasePageState
     with SingleTickerProviderStateMixin {
   final DesignPattern designPattern;
   final Widget innerWidget;
-  final Color appBarColor;
 
-  DetailsPageState(
-      {required this.designPattern,
-      required this.innerWidget,
-      required this.appBarColor});
+  DetailsPageState({
+    required this.designPattern,
+    required this.innerWidget,
+  });
 
   late final TabController _tabController;
+
+  Color _getCurrentColor() => switchColor(designPattern);
 
   @override
   bool isCurvedAppBar() => false;
 
   @override
-  Color backgroundColor() => appBarColor;
+  Color backgroundColor() => _getCurrentColor();
 
   @override
   void initState() {

@@ -27,6 +27,7 @@ class App extends StatelessWidget {
         return Consumer<ThemeModel>(
           builder: (context, themeModel, child) {
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'Flutter Design Patterns App',
               navigatorKey: globalKey,
               onGenerateRoute: AppRouter.generateRoute,

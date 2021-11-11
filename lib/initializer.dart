@@ -6,7 +6,6 @@ import 'entity/design_pattern_type.dart';
 import 'entity/repository/design_patterns_repository.dart';
 import 'logic/database/database_provider.dart';
 import 'logic/navigation/app_router.dart';
-import 'logic/prefs/theme_prefs.dart';
 import 'logic/provider/favorite_model.dart';
 import 'utils/utils.dart';
 
@@ -32,8 +31,6 @@ class Initializer {
       final patterns = _convertPatternTypesToPatternsList(patternTypes);
 
       await DatabaseProvider.instance.initDatabase(patterns);
-      //TODO: (Egor) late initialization of shared preferences
-      await ThemePrefs.instance.initPrefs();
 
       await context.read<FavoriteModel>().loadFavoriteDesignPatterns();
 
