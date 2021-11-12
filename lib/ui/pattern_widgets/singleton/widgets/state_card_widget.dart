@@ -16,7 +16,7 @@ class StateCardWidget extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(color: listTileTextLightColor),
+            style: TextStyle(color: textColor),
           ),
         ),
       ),

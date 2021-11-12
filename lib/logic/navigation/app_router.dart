@@ -76,12 +76,9 @@ class AppRouter {
           ),
         );
       case Navigation.favoriteRoute:
-        final navigateArgument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
         return MaterialPageRoute(
           builder: (context) => PageStateFactory(
-            concreteState: () => FavoritePageState(
-              color: navigateArgument['color'],
-            ),
+            concreteState: () => FavoritePageState(),
           ),
         );
       case Navigation.abstractFactoryRoute:

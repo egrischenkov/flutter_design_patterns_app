@@ -26,6 +26,6 @@ class ThemePrefs extends Prefs {
   Future<bool> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
 
-    return getBool(prefs, themeKey, false);
+    return getBool(prefs, themeKey, true);
   }
 }

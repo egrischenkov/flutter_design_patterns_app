@@ -22,10 +22,13 @@ class StandardAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeModel = context.watch<ThemeModel>();
     return AppBar(
+      leading: BackButton(
+          color: textColor,
+      ),
       backgroundColor: backgroundColor,
       title: Text(
         title,
-        style: TextStyle(color: appBarTextLightColor),
+        style: TextStyle(color: textColor),
       ),
       actions: [
         SizedBox(
@@ -44,6 +47,7 @@ class StandardAppBarWidget extends StatelessWidget {
         if (!isFavoritePage)
           IconButton(
             icon: Icon(Icons.favorite_border),
+            color: textColor,
             onPressed: () {
               navigate(
                 Navigation.favoriteRoute,

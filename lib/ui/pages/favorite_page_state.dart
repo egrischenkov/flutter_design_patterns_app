@@ -3,16 +3,13 @@ import 'package:provider/provider.dart';
 
 import '../../entity/design_pattern.dart';
 import '../../logic/provider/favorite_model.dart';
+import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
 import '../base_page_state.dart';
 import '../items/standard_list_item.dart';
 import '../widgets/vertical_space.dart';
 
 class FavoritePageState extends BasePageState {
-  final Color color;
-
-  FavoritePageState({required this.color});
-
   @override
   bool isFavoritePage() => true;
 
@@ -20,7 +17,7 @@ class FavoritePageState extends BasePageState {
   bool isCurvedAppBar() => false;
 
   @override
-  Color? backgroundColor() => color;
+  Color? backgroundColor() => favoriteScreenBackgroundColor;
 
   @override
   String? getTitle() => 'Favorite';
@@ -37,13 +34,13 @@ class FavoritePageState extends BasePageState {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      color: color,
+      color: favoriteScreenBackgroundColor,
       child: favoritePatterns.isEmpty
           ? Center(
               child: Text(
                 'Oops, no favorite patterns yet!',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: textColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
@@ -61,7 +58,6 @@ class FavoritePageState extends BasePageState {
                       '/${designPattern.id.toString()}',
                       argument: {
                         "design_pattern": designPattern,
-                        "app_bar_color": color,
                       },
                       replace: true,
                     );
