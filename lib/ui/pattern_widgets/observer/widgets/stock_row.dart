@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_colors.dart';
 
 import '../stock.dart';
 import '../stock_change_direction.dart';
@@ -8,8 +9,8 @@ class StockRow extends StatelessWidget {
   final Stock stock;
 
   Color get color => stock.changeDirection == StockChangeDirection.growing
-      ? Colors.green
-      : Colors.red;
+      ? stockUpColor
+      : stockDownColor;
 
   const StockRow({
     required this.stock,

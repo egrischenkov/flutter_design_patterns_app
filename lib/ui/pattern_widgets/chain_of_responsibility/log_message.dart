@@ -29,7 +29,6 @@ class LogMessage {
     return Text(
       '$_logLevelString: $message',
       textAlign: TextAlign.justify,
-      //TODO: (Egor) don't forget to remove it
       overflow: TextOverflow.ellipsis,
       maxLines: 2,
       style: TextStyle(color: _logEntryColor),

@@ -9,18 +9,22 @@ class LogMessagesColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        for (var logMessage in logMessages)
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: logMessage.getFormattedMessageWidget(),
-              ),
-            ],
-          )
-      ],
+    return Container(
+      padding: EdgeInsets.all(8),
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (var logMessage in logMessages)
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: logMessage.getFormattedMessageWidget(),
+                ),
+              ],
+            )
+        ],
+      ),
     );
   }
 }

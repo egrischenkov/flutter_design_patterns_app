@@ -23,7 +23,10 @@ class Box extends StatelessWidget {
           children: <Widget>[
             Text(
               nodeId.toString(),
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .copyWith(color: Colors.black),
             ),
             VerticalSpace(16),
             if (child != null) child!,

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/app_colors.dart';
 
 class StateCardWidget extends StatelessWidget {
   final String text;
 
-  const StateCardWidget({required this.text});
+  StateCardWidget({required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,6 @@ class StateCardWidget extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(color: textColor),
           ),
         ),
       ),
