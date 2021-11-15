@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../utils/app_colors.dart';
+import '../../utils/app_text_styles.dart';
 import '../widgets/vertical_space.dart';
 
 class CurvedListItem extends StatelessWidget {
@@ -42,15 +45,18 @@ class CurvedListItem extends StatelessWidget {
             children: <Widget>[
               Text(
                 subtitle,
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: listTileSubtitleTextStyle.copyWith(color: textColor),
               ),
               VerticalSpace(2),
               Text(
                 title,
-                style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                style: listTileTitleTextStyle.copyWith(color: textColor),
               ),
               VerticalSpace(32),
-              Text(description, style: TextStyle(color: Colors.white),),
+              Text(
+                description,
+                style: listTileSubtitleTextStyle.copyWith(color: textColor),
+              ),
             ],
           ),
         ),

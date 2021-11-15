@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../utils/app_colors.dart';
 
 import '../custom_alert_dialog.dart';
 
@@ -11,7 +12,7 @@ class IosAlertDialog extends CustomAlertDialog {
       content: Text('This is cupertino-style alert dialog'),
       actions: [
         CupertinoButton(
-          child: Text('Close'),
+          child: Text('Close', style: TextStyle(color: textColor)),
           onPressed: () => Navigator.of(context).pop(),
         )
       ],

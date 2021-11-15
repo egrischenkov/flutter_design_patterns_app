@@ -13,42 +13,29 @@ class MainPageState extends BasePageState {
   MainPageState(this.patternTypes);
 
   @override
-  Color backgroundColor() => firstListTileColorLight;
-
-  Color _colorSwitcher(int index) {
-    switch (index) {
-      case 0:
-        return firstListTileColorLight;
-      case 1:
-        return secondListTileColorLight;
-      case 2:
-        return thirdListTileColorLight;
-      case 3:
-        return mainPageBackgroundColorLight;
-      default:
-        throw ('Index is out of range. There is no such color!');
-    }
-  }
+  Color backgroundColor() => firstListTileColor;
 
   @override
   Widget buildBody(BuildContext context) {
     return Container(
-      color: mainPageBackgroundColorLight,
+      color: mainBackgroundColor,
       child: ListView.builder(
         physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemCount: patternTypes.length,
         itemBuilder: (context, index) {
           var designPatternType = patternTypes[index];
+
           return CurvedListItem(
             title: designPatternType.id,
             subtitle: '${designPatternType.designPatterns.length} patterns',
             description: designPatternType.id,
-            color: _colorSwitcher(index),
-            nextColor: _colorSwitcher(index + 1),
+            color: switchColor(patternTypes[index].designPatterns.first),
+            nextColor:
+                index == 2 ? mainBackgroundColor : switchColor(patternTypes[index + 1].designPatterns.first),
             onTap: () => navigate(
               Navigation.categoryRoute,
-              argument: {'pattern_type': designPatternType, 'color': _colorSwitcher(index)},
+              argument: {'pattern_type': designPatternType},
             ),
           );
         },

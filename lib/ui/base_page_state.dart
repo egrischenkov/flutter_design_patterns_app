@@ -20,13 +20,13 @@ abstract class BasePageState extends State<PageStateFactory> {
     return isCurvedAppBar()
         ? CurvedAppBarWidget(
             title: getTitle()!,
-            color: appBarColorLight,
+            color: mainBackgroundColor,
             backgroundColor: backgroundColor()!,
           )
         : StandardAppBarWidget(
-            backgroundColor: backgroundColor()!,
             title: getTitle()!,
             isFavoritePage: isFavoritePage(),
+            backgroundColor: backgroundColor()!,
           );
   }
 

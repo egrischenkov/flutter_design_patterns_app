@@ -11,24 +11,28 @@ import '../widgets/vertical_space.dart';
 
 class CategoryPageState extends BasePageState {
   final DesignPatternType designPatternType;
-  final Color color;
 
-  CategoryPageState({required this.designPatternType, required this.color});
+  CategoryPageState({required this.designPatternType});
 
   @override
   bool isCurvedAppBar() => false;
 
   @override
-  Color backgroundColor() => color;
+  Color backgroundColor() => _getCurrentColor();
 
   @override
   String getTitle() => designPatternType.id;
+
+  Color _getCurrentColor() {
+    return switchColor(designPatternType.designPatterns.first);
+  }
 
   bool _isFavorite(FavoriteModel favoriteModel, DesignPattern pattern) {
     return favoriteModel.isFavorite(pattern);
   }
 
-  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel, DesignPattern pattern) {
+  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel,
+      DesignPattern pattern) {
     return favoriteModel.isFavorite(pattern)
         ? favoriteModel.removeFromFavorite(context, pattern)
         : favoriteModel.addToFavorite(context, pattern);
@@ -38,7 +42,7 @@ class CategoryPageState extends BasePageState {
   Widget buildBody(BuildContext context) {
     final favoriteModel = context.watch<FavoriteModel>();
     return Container(
-      color: color,
+      color: _getCurrentColor(),
       child: ListView.separated(
         padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
         itemCount: designPatternType.designPatterns.length,
@@ -51,7 +55,6 @@ class CategoryPageState extends BasePageState {
                 '/${designPattern.id.toString()}',
                 argument: {
                   "design_pattern": designPattern,
-                  "app_bar_color": color,
                 },
               );
             },

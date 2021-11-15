@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import '../entity/design_pattern.dart';
+import 'app_colors.dart';
+
 import 'const.dart';
 
 Future navigate(
@@ -27,4 +31,36 @@ Future navigate(
 
 bool isAndroid() {
   return Platform.isAndroid;
+}
+
+Color switchColor(DesignPattern designPattern) {
+  switch (designPattern.id) {
+    case abstractFactoryId:
+    case builderId:
+    case factoryMethodId:
+    case prototypeId:
+    case singletonId:
+      return firstListTileColor;
+    case adapterId:
+    case bridgeId:
+    case compositeId:
+    case decoratorId:
+    case facadeId:
+    case flyweightId:
+    case proxyId:
+      return secondListTileColor;
+    case chainOfResponsibilityId:
+    case commandId:
+    case iteratorId:
+    case mediatorId:
+    case mementoId:
+    case observerId:
+    case stateId:
+    case strategyId:
+    case templateMethodId:
+    case visitorId:
+      return thirdListTileColor;
+    default:
+      throw Exception("Unknown design pattern id: ${designPattern.id}");
+  }
 }

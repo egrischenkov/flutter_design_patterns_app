@@ -22,7 +22,7 @@ class StandardListItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: PhysicalModel(
-        color: listTileBackgroundLightColor,
+        color: listItemBackgroundColor,
         borderRadius: BorderRadius.circular(10),
         shadowColor: listTileShadowColor,
         elevation: 3,
@@ -39,21 +39,21 @@ class StandardListItem extends StatelessWidget {
                     designPattern.id,
                     style: TextStyle(
                         fontSize: 22,
-                        color: listTileTextLightColor,
+                        color: textColor,
                         fontWeight: FontWeight.bold),
                   ),
                   VerticalSpace(32),
                   Text(
                     designPattern.id,
                     style:
-                        TextStyle(fontSize: 16, color: listTileTextLightColor),
+                        TextStyle(fontSize: 16, color: textColor),
                   ),
                 ],
               ),
               InkWell(
                 child: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_outline,
-                  color: Colors.red,
+                  color: heartIconListTileColor,
                   size: 30,
                 ),
                 onTap: onFavoriteTap,

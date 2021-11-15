@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_colors.dart';
 
 import '../i_visitor.dart';
 
@@ -23,7 +24,7 @@ class FilesVisitorSelection extends StatelessWidget {
             value: i,
             groupValue: selectedIndex,
             selected: i == selectedIndex,
-            activeColor: Colors.black,
+            activeColor: textColor,
             controlAffinity: ListTileControlAffinity.platform,
             onChanged: onChanged,
           ),

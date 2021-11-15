@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../utils/app_colors.dart';
 
 class HeartAnimatedWidget extends StatefulWidget {
 
@@ -41,7 +42,7 @@ class _HeartAnimatedWidgetState extends State<HeartAnimatedWidget> with SingleTi
         child: FittedBox(
           child: Icon(
             Icons.favorite_border,
-            color: Colors.red,
+            color: heartIconColor,
           ),
         ),
       ),

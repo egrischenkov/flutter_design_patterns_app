@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_colors.dart';
 import '../collections/i_tree_collection.dart';
 
 class TreeCollectionSelection extends StatelessWidget {
@@ -22,7 +23,7 @@ class TreeCollectionSelection extends StatelessWidget {
             value: i,
             groupValue: selectedIndex,
             selected: i == selectedIndex,
-            activeColor: Colors.black,
+            activeColor: textColor,
             controlAffinity: ListTileControlAffinity.platform,
             onChanged: onChanged,
           ),

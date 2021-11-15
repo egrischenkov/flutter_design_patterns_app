@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/app_colors.dart';
+import '../../utils/app_text_styles.dart';
 import '../widgets/vertical_space.dart';
 
 class AppBarItem extends StatelessWidget {
@@ -23,11 +25,11 @@ class AppBarItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              widget,
+              SizedBox(height: 40, child: FittedBox(child: widget)),
               VerticalSpace(),
               Text(
                 title,
-                style: TextStyle(color: appBarItemColorLight),
+                style: listTileSubtitleTextStyle.copyWith(color: textColor),
               ),
             ],
           ),

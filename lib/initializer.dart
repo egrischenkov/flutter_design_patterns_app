@@ -13,7 +13,8 @@ class Initializer {
   DesignPatternsRepository repository = DesignPatternsRepository();
 
   List<DesignPattern> _convertPatternTypesToPatternsList(
-      List<DesignPatternType> types) {
+    List<DesignPatternType> types,
+  ) {
     var patterns = <DesignPattern>[];
 
     for (var type in types) {
@@ -30,6 +31,7 @@ class Initializer {
       final patterns = _convertPatternTypesToPatternsList(patternTypes);
 
       await DatabaseProvider.instance.initDatabase(patterns);
+
       await context.read<FavoriteModel>().loadFavoriteDesignPatterns();
 
       navigate(Navigation.mainRoute, replace: true, argument: patternTypes);

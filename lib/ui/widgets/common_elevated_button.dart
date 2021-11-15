@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../utils/app_colors.dart';
 
 class CommonElevatedButton extends StatelessWidget {
   final String title;
@@ -9,12 +8,12 @@ class CommonElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(mainPageBackgroundColorLight),
-      ),
+
+    return TextButton(
       onPressed: onTap,
-      child: Text(title, style: TextStyle(fontSize: 20,)),
+      child: Text(
+        title,
+      ),
     );
   }
 }

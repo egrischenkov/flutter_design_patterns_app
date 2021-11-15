@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_colors.dart';
 import '../stock_subscribers/stock_subscriber.dart';
 
 class StockSubscriberSelection extends StatelessWidget {
@@ -22,7 +23,7 @@ class StockSubscriberSelection extends StatelessWidget {
             value: i,
             groupValue: selectedIndex,
             selected: i == selectedIndex,
-            activeColor: Colors.black,
+            activeColor: textColor,
             controlAffinity: ListTileControlAffinity.platform,
             onChanged: onChanged,
           ),
