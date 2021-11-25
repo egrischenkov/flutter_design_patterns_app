@@ -1,6 +1,6 @@
 name: flutter_design_patterns
 description: App which can help to learning design patterns and implement them with Flutter.
-version: 1.0.2+1
+version: 1.0.3+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -27,7 +27,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
   dart_code_metrics: ^4.1.0
 
 flutter_native_splash:
@@ -37,6 +39,7 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/config/config_design_patterns.json

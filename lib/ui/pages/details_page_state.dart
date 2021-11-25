@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern.dart';
+import '../../logic/extensions/context_extensions.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
 import '../base_page_state.dart';
@@ -72,13 +73,13 @@ class DetailsPageState extends BasePageState
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Tab(
-                    text: 'Description',
+                    text: context.localizations.description,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Tab(
-                    text: 'Example',
+                    text: context.localizations.example,
                   ),
                 )
               ],
@@ -100,5 +101,5 @@ class DetailsPageState extends BasePageState
   }
 
   @override
-  String getTitle() => designPattern.id;
+  String getTitle() => context.localizations.patterns_name(designPattern.id);
 }

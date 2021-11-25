@@ -2,6 +2,7 @@ import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../logic/extensions/context_extensions.dart';
 import '../../../logic/navigation/app_router.dart';
 import '../../../logic/provider/theme_model.dart';
 import '../../../utils/app_colors.dart';
@@ -36,9 +37,10 @@ class CurvedAppBarWidget extends StatelessWidget {
               bottomLeft: Radius.circular(90.0),
             ),
           ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 64,
+          padding: const EdgeInsets.only(
+            top: 16,
+            bottom: 16,
+            left: 64,
           ),
           child: Padding(
             padding: const EdgeInsets.only(top: 32),
@@ -51,31 +53,44 @@ class CurvedAppBarWidget extends StatelessWidget {
                   style: TextStyle(color: textColor, fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 VerticalSpace(32),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    AppBarItem(
-                      DayNightSwitcher(
-                        isDarkModeEnabled: !themeModel.isLight,
-                        onStateChanged: (isDarkModeEnabled) =>
-                            themeModel.setIsLight(!isDarkModeEnabled),
+                FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      AppBarItem(
+                        DayNightSwitcher(
+                          isDarkModeEnabled: !themeModel.isLight,
+                          onStateChanged: (isDarkModeEnabled) =>
+                              themeModel.setIsLight(!isDarkModeEnabled),
+                        ),
+                        context.localizations.theme,
+                        () => themeModel.setIsLight(!themeModel.isLight),
                       ),
-                      'Theme',
-                      () => themeModel.setIsLight(!themeModel.isLight),
-                    ),
-                    HorizontalSpace(32),
-                    AppBarItem(
-                      HeartAnimatedWidget(),
-                      'Favorite',
-                      () {
-                        navigate(
-                          Navigation.favoriteRoute,
-                          argument: {'color': mainBackgroundColor},
-                        );
-                      },
-                    ),
-                  ],
+                      HorizontalSpace(32),
+                      AppBarItem(
+                        HeartAnimatedWidget(),
+                        context.localizations.favorite,
+                        () {
+                          navigate(
+                            Navigation.favoriteRoute,
+                            argument: {'color': mainBackgroundColor},
+                          );
+                        },
+                      ),
+                      HorizontalSpace(32),
+                      AppBarItem(
+                        Icon(Icons.language),
+                        context.localizations.language,
+                            () {
+                          navigate(
+                            Navigation.languageRoute,
+                            argument: {'color': mainBackgroundColor},
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../entity/design_pattern.dart';
+import '../../logic/extensions/context_extensions.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
@@ -20,7 +21,7 @@ class FavoritePageState extends BasePageState {
   Color? backgroundColor() => favoriteScreenBackgroundColor;
 
   @override
-  String? getTitle() => 'Favorite';
+  String? getTitle() => context.localizations.favorite;
 
   Future<void> _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel,
       DesignPattern pattern) {
@@ -38,7 +39,8 @@ class FavoritePageState extends BasePageState {
       child: favoritePatterns.isEmpty
           ? Center(
               child: Text(
-                'Oops, no favorite patterns yet!',
+                context.localizations.warning_no_favorite,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: textColor,
                   fontWeight: FontWeight.bold,

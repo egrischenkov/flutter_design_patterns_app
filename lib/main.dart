@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'locale_model.dart';
 import 'logic/navigation/app_router.dart';
 import 'logic/provider/favorite_model.dart';
 import 'logic/provider/theme_model.dart';
@@ -20,17 +22,22 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeModel>(create: (context) => ThemeModel()),
+        ChangeNotifierProvider<LocaleModel>(create: (context) => LocaleModel()),
         ChangeNotifierProvider<FavoriteModel>(
             create: (context) => FavoriteModel()),
       ],
       builder: (context, child) {
-        return Consumer<ThemeModel>(
-          builder: (context, themeModel, child) {
+        return Consumer2<ThemeModel, LocaleModel>(
+          builder: (context, themeModel, localeModel, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Flutter Design Patterns App',
               navigatorKey: globalKey,
               onGenerateRoute: AppRouter.generateRoute,
+              locale: localeModel.locale,
+              localeResolutionCallback: _setUpDeviceLocaleForApp,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
               themeMode: themeModel.isLight ? ThemeMode.light : ThemeMode.dark,
               theme: dayTheme(context),
               darkTheme: nightTheme(context),
@@ -39,5 +46,16 @@ class App extends StatelessWidget {
         );
       },
     );
+  }
+
+  Locale _setUpDeviceLocaleForApp(Locale? userLocale, Iterable <Locale> supportedLocales) {
+      for (var locale in supportedLocales) {
+        if (locale.languageCode == userLocale?.languageCode &&
+            locale.countryCode == userLocale?.countryCode) {
+          return userLocale!;
+        }
+      }
+
+      return supportedLocales.first;
   }
 }
