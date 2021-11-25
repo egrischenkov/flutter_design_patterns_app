@@ -29,7 +29,10 @@ class AppBarItem extends StatelessWidget {
               VerticalSpace(),
               Text(
                 title,
-                style: listTileSubtitleTextStyle.copyWith(color: textColor),
+                style: listTileTitleTextStyle.copyWith(
+                  color: textColor,
+                  fontSize: 15,
+                ),
               ),
             ],
           ),

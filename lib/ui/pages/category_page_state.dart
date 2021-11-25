@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../entity/design_pattern.dart';
 import '../../entity/design_pattern_type.dart';
+import '../../logic/extensions/context_extensions.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/utils.dart';
 import '../base_page_state.dart';
@@ -21,7 +22,7 @@ class CategoryPageState extends BasePageState {
   Color backgroundColor() => _getCurrentColor();
 
   @override
-  String getTitle() => designPatternType.id;
+  String getTitle() => context.localizations.pattern_types(designPatternType.id);
 
   Color _getCurrentColor() {
     return switchColor(designPatternType.designPatterns.first);

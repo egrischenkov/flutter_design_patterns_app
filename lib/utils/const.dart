@@ -5,6 +5,9 @@ final globalKey = GlobalKey<NavigatorState>();
 const String designPatternsJsonPath = 'assets/config/config_design_patterns.json';
 const String markdownPath = 'assets/markdown/';
 
+const String enLocaleName = 'English';
+const String ruLocaleName = 'Русский';
+
 //design patterns id for switching colors
 const abstractFactoryId = 'abstract_factory';
 const adapterId = 'adapter';

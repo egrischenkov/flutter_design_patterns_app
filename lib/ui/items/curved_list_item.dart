@@ -52,7 +52,7 @@ class CurvedListItem extends StatelessWidget {
                 title,
                 style: listTileTitleTextStyle.copyWith(color: textColor),
               ),
-              VerticalSpace(32),
+              VerticalSpace(15),
               Text(
                 description,
                 style: listTileSubtitleTextStyle.copyWith(color: textColor),

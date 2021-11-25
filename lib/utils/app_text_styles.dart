@@ -6,6 +6,7 @@ const listTileTitleTextStyle = TextStyle(
 
 const listTileSubtitleTextStyle = TextStyle(
   fontSize: 15,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.normal,
+  fontStyle: FontStyle.normal,
 );
 

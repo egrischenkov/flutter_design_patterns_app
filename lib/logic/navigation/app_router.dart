@@ -6,6 +6,7 @@ import '../../ui/pages/category_page_state.dart';
 import '../../ui/pages/details_page_state.dart';
 import '../../ui/pages/favorite_page_state.dart';
 import '../../ui/pages/init_page_state.dart';
+import '../../ui/pages/language_page_state.dart';
 import '../../ui/pages/main_page_state.dart';
 import '../../ui/pattern_widgets/abstract_factory/widgets/abstract_factory_pattern_widget.dart';
 import '../../ui/pattern_widgets/adapter/widgets/adapter_pattern_widget.dart';
@@ -81,6 +82,12 @@ class AppRouter {
             concreteState: () => FavoritePageState(),
           ),
         );
+      case Navigation.languageRoute:
+        return MaterialPageRoute(
+          builder: (context) => PageStateFactory(
+            concreteState: () => LanguagePageState(),
+          ),
+        );
       case Navigation.abstractFactoryRoute:
         return _buildDesignPatternDetailsPageRoute(routeSettings, AbstractFactoryPatternWidget());
       case Navigation.adapterRoute:
@@ -136,6 +143,7 @@ class Navigation {
   static const String mainRoute = '/main_page';
   static const String categoryRoute = '/category_page';
   static const String favoriteRoute = '/favorite_page';
+  static const String languageRoute = '/language_page';
   static const String abstractFactoryRoute = '/abstract_factory';
   static const String adapterRoute = '/adapter';
   static const String bridgeRoute = '/bridge';

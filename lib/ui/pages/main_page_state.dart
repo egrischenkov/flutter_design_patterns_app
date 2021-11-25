@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern_type.dart';
+import '../../logic/extensions/context_extensions.dart';
 import '../../logic/navigation/app_router.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
@@ -27,9 +28,9 @@ class MainPageState extends BasePageState {
           var designPatternType = patternTypes[index];
 
           return CurvedListItem(
-            title: designPatternType.id,
-            subtitle: '${designPatternType.designPatterns.length} patterns',
-            description: designPatternType.id,
+            title: context.localizations.pattern_types(designPatternType.id),
+            subtitle: context.localizations.patterns(designPatternType.designPatterns.length),
+            description: context.localizations.pattern_types_description(designPatternType.id),
             color: switchColor(patternTypes[index].designPatterns.first),
             nextColor:
                 index == 2 ? mainBackgroundColor : switchColor(patternTypes[index + 1].designPatterns.first),
@@ -44,5 +45,5 @@ class MainPageState extends BasePageState {
   }
 
   @override
-  String? getTitle() => 'Flutter Design Patterns';
+  String? getTitle() => context.localizations.main_title;
 }

@@ -11,6 +11,9 @@ const mainBackgroundColorDark = Color(0xFF8E93B3);
 const favoriteScreenBackgroundColorLight = Color(0xFFF78888);
 const favoriteScreenBackgroundColorDark = Color(0xFF150428);
 
+const languageScreenBackgroundColorLight = Color(0xFFF78888);
+const languageScreenBackgroundColorDark = Color(0xFF150428);
+
 const listItemBackgroundColorLight = Colors.white;
 const listItemBackgroundColorDark = Color(0xFF8E93B3);
 
@@ -47,6 +50,9 @@ const stockUpColorDark = Colors.green;
 
 final stockDownColorLight = Colors.red[900];
 const stockDownColorDark = Colors.red;
+
+const activeRadioColorLight = Colors.white;
+const activeRadioColorDark = Color(0xFFD96F9F);
 
 
 final tabGradientColorLight = [
@@ -127,6 +133,12 @@ Color get favoriteScreenBackgroundColor {
       : favoriteScreenBackgroundColorDark;
 }
 
+Color get languageScreenBackgroundColor {
+  return isLightModeActive
+      ? languageScreenBackgroundColorLight
+      : languageScreenBackgroundColorDark;
+}
+
 Color get stockUpColor {
   return isLightModeActive
       ? stockUpColorLight ?? Colors.green
@@ -143,6 +155,12 @@ List<Color> get tabGradientColor {
   return isLightModeActive ? tabGradientColorLight : tabGradientColorDark;
 }
 
+Color get activeRadioColor {
+  return isLightModeActive
+      ? activeRadioColorLight
+      : activeRadioColorDark;
+}
+
 ThemeData dayTheme(BuildContext context) {
   return ThemeData(
     colorScheme: ColorScheme.light(
@@ -152,6 +170,9 @@ ThemeData dayTheme(BuildContext context) {
           displayColor: Colors.black,
           bodyColor: Colors.black,
         ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.all<Color>(Colors.white),
+    ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
