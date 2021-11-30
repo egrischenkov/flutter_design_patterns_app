@@ -1,3 +1,24 @@
+
+[//]: <> (Copyright \(c\) 2019 Mangirdas Kazlauskas)
+
+[//]: <> (Permission is hereby granted, free of charge, to any person obtaining a copy)
+[//]: <> (of this software and associated documentation files \(the "Software"\), to deal)
+[//]: <> (in the Software without restriction, including without limitation the rights)
+[//]: <> (to use, copy, modify, merge, publish, distribute, sublicense, and/or sell)
+[//]: <> (copies of the Software, and to permit persons to whom the Software is)
+[//]: <> (furnished to do so, subject to the following conditions:)
+
+[//]: <> (The above copyright notice and this permission notice shall be included in all)
+[//]: <> (copies or substantial portions of the Software.)
+
+[//]: <> (THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR)
+[//]: <> (IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,)
+[//]: <> (FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE)
+[//]: <> (AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER)
+[//]: <> (LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,)
+[//]: <> (OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE)
+[//]: <> (SOFTWARE.)
+///
 The main class in the diagram is _StudentsBmiCalculator_. Its primary purpose is to define a template of the BMI calculation algorithm which returns a list of _Student_ objects (with the calculated BMI for each student) as a result via _calculateBmiAndReturnStudentList()_ method. This abstract class is used as a template (base class) for the concrete implementations of the students' BMI calculation algorithm - _StudentsXmlBmiCalculator_, _StudentsJsonBmiCalculator_ and _TeenageStudentsJsonBmiCalculator_. _StudentsXmlBmiCalculator_ uses the _XmlStudentsApi_ to retrieve students information as an XML string and returns it as a list of _Student_ objects via the overridden _getStudentsData()_ method. Both of the other two implementations (_StudentsJsonBmiCalculator_ and _TeenageStudentsJsonBmiCalculator_) uses the _JsonStudentsApi_ to retrieve students information in JSON format and returns the parsed data via the overridden _getStudentsData()_ method. However, _TeenageStudentsJsonBmiCalculator_ additionally reimplements (overrides) the _doStudentsFiltering()_ hook method to filter out not teenage students before calculating the BMI values. _StudentsSection_ UI widget uses the _StudentsBmiCalculator_ abstraction to retrieve and represent the calculated results in _TemplateMethodExample_ widget.
 
 ### StudentsBmiCalculator

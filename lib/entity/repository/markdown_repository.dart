@@ -6,6 +6,6 @@ class MarkdownRepository {
     final path = '$markdownPath$designPatternId.md';
     final markdownString = await rootBundle.loadString(path);
 
-    return markdownString;
+    return markdownString.split('///').last;
   }
 }

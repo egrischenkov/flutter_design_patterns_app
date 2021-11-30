@@ -1,3 +1,25 @@
+
+[//]: <> (Copyright \(c\) 2019 Mangirdas Kazlauskas)
+
+[//]: <> (Permission is hereby granted, free of charge, to any person obtaining a copy)
+[//]: <> (of this software and associated documentation files \(the "Software"\), to deal)
+[//]: <> (in the Software without restriction, including without limitation the rights)
+[//]: <> (to use, copy, modify, merge, publish, distribute, sublicense, and/or sell)
+[//]: <> (copies of the Software, and to permit persons to whom the Software is)
+[//]: <> (furnished to do so, subject to the following conditions:)
+
+[//]: <> (The above copyright notice and this permission notice shall be included in all)
+[//]: <> (copies or substantial portions of the Software.)
+
+[//]: <> (THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR)
+[//]: <> (IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,)
+[//]: <> (FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE)
+[//]: <> (AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER)
+[//]: <> (LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,)
+[//]: <> (OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE)
+
+[//]: <> (SOFTWARE.)
+///
 First of all, there are two APIs: _JsonContactsApi_ and _XmlContactsApi_. These two APIs have different methods to return contacts information in two different formats - JSON and XML. Hence, two different adapters should be created to convert the specific contacts' representation to the required format which is needed in the _ContactsSection_ component (widget) - list of _Contact_ objects. To unify the contract (interface) of adapters, _IContactsAdapter_ abstract class is created which requires to implement (override) the _getContacts()_ method in all the implementations of this abstract class. _JsonContactsAdapter_ implements the _IContactsAdapter_, uses the _JsonContactsApi_ to retrieve contacts information as a JSON string, then parses it to a list of _Contact_ objects and returns it via _getContacts()_ method. Accordingly, _XmlContactsAdapter_ is implemented in the same manner, but it receives the data from _XmlContactsApi_ in XML format.
 
 ### Contact
