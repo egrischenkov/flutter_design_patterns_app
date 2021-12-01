@@ -1,5 +1,14 @@
 # Flutter Design Patterns
+An application which realized design patterns with Dart and Flutter
 
+## Table of contents
+* [General info](#general-info)
+* [Setup](#setup)
+* [License information](#license-information)
+* [Contributors](#contributors)
+
+
+## General info
 This application was built for three reasons:
 
 **1. The most important is that I needed to learn design patterns**
@@ -8,7 +17,44 @@ This application was built for three reasons:
 
 **3. In order to inspire other people learn design patterns**
 
-## LICENSE
+#### Screenshots:
+
+<p float="left">
+	<img src="./screenshots/first_light.png" alt="Home Screen" width="250">
+	<img src="./screenshots/second_light.png" alt="Creational Design Patterns" width="250">
+	<img src="./screenshots/third_light.png" alt="Factory Method" width="250">
+	<img src="./screenshots/first_black.png" alt="Home Screen" width="250">
+    <img src="./screenshots/second_black.png" alt="Creational Design Patterns" width="250">
+	<img src="./screenshots/third_black.png" alt="Factory Method" width="250">
+</p>
+
+## Setup
+
+### From IDE
+
+Just clone or download the project from GitHub and run it from your IDE. How to start with Flutter on your IDE search [here](https://flutter.dev/docs/get-started/editor).
+
+### Without IDE
+
+You can build the app for Android from terminal on your machine without installing any IDE. Follow this steps:
+
+1. install [Flutter](https://flutter.dev/docs/get-started/install) and dependencies for it;
+2. in terminal change current directory (by command `cd`) to the `android` folder in the project and run:
+
+```shell
+flutter pub run build_runner build
+flutter build apk --profile --split-per-abi
+```
+
+3. find created `.apk` at `/build/app/outputs/flutter-apk/app-profile.apk`.
+
+## How to build app for iOS
+
+### From IDE
+
+Just clone or download the project from GitHub and run it from your IDE. How to start with Flutter search [here](https://flutter.dev/docs/get-started/editor).
+
+## License information
 This repository includes files originally and partially copied from `https://github.com/mkobuolys/flutter-design-patterns` under `flutter_design_patterns_app/assets/markdown/` and `flutter_design_patterns_app/lib/ui/pattern_widgets/`:
 
 * `abstract_factory.md`
