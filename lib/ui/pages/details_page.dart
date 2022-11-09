@@ -4,16 +4,15 @@ import '../../entity/design_pattern.dart';
 import '../../logic/extensions/context_extensions.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 import '../widgets/markdown_widget.dart';
 import '../widgets/vertical_space.dart';
 
-class DetailsPageState extends BasePageState
-    with SingleTickerProviderStateMixin {
+class DetailsPage extends BasePage {
   final DesignPattern designPattern;
   final Widget innerWidget;
 
-  DetailsPageState({
+  DetailsPage({
     required this.designPattern,
     required this.innerWidget,
   });
@@ -29,9 +28,8 @@ class DetailsPageState extends BasePageState
   Color backgroundColor() => _getCurrentColor();
 
   @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, initialIndex: 0, vsync: this);
+  void init(BuildContext context, TickerProvider tickerProvider) {
+    _tabController = TabController(length: 2, initialIndex: 0, vsync: tickerProvider);
   }
 
   @override
@@ -52,8 +50,7 @@ class DetailsPageState extends BasePageState
               isScrollable: true,
               labelColor: tabLabelSelectedColor,
               labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              unselectedLabelStyle:
-                  TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              unselectedLabelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               unselectedLabelColor: tabLabelUnselectedColor,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.symmetric(
@@ -101,5 +98,5 @@ class DetailsPageState extends BasePageState
   }
 
   @override
-  String getTitle() => context.localizations.patterns_name(designPattern.id);
+  String getTitle(BuildContext context) => context.localizations.patterns_name(designPattern.id);
 }

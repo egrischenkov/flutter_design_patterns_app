@@ -5,13 +5,13 @@ import '../../logic/extensions/context_extensions.dart';
 import '../../logic/navigation/app_router.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 import '../items/curved_list_item.dart';
 
-class MainPageState extends BasePageState {
+class MainPage extends BasePage {
   final List<DesignPatternType> patternTypes;
 
-  MainPageState(this.patternTypes);
+  MainPage(this.patternTypes);
 
   @override
   Color backgroundColor() => firstListTileColor;
@@ -32,8 +32,7 @@ class MainPageState extends BasePageState {
             subtitle: context.localizations.patterns(designPatternType.designPatterns.length),
             description: context.localizations.pattern_types_description(designPatternType.id),
             color: switchColor(patternTypes[index].designPatterns.first),
-            nextColor:
-                index == 2 ? mainBackgroundColor : switchColor(patternTypes[index + 1].designPatterns.first),
+            nextColor: index == 2 ? mainBackgroundColor : switchColor(patternTypes[index + 1].designPatterns.first),
             onTap: () => navigate(
               Navigation.categoryRoute,
               argument: {'pattern_type': designPatternType},
@@ -45,5 +44,5 @@ class MainPageState extends BasePageState {
   }
 
   @override
-  String? getTitle() => context.localizations.main_title;
+  String? getTitle(BuildContext context) => context.localizations.main_title;
 }

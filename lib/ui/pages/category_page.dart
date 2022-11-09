@@ -6,14 +6,14 @@ import '../../entity/design_pattern_type.dart';
 import '../../logic/extensions/context_extensions.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/utils.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 import '../items/standard_list_item.dart';
 import '../widgets/vertical_space.dart';
 
-class CategoryPageState extends BasePageState {
+class CategoryPage extends BasePage {
   final DesignPatternType designPatternType;
 
-  CategoryPageState({required this.designPatternType});
+  CategoryPage({required this.designPatternType});
 
   @override
   bool isCurvedAppBar() => false;
@@ -22,7 +22,7 @@ class CategoryPageState extends BasePageState {
   Color backgroundColor() => _getCurrentColor();
 
   @override
-  String getTitle() => context.localizations.pattern_types(designPatternType.id);
+  String getTitle(BuildContext context) => context.localizations.pattern_types(designPatternType.id);
 
   Color _getCurrentColor() {
     return switchColor(designPatternType.designPatterns.first);
@@ -32,8 +32,7 @@ class CategoryPageState extends BasePageState {
     return favoriteModel.isFavorite(pattern);
   }
 
-  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel,
-      DesignPattern pattern) {
+  Future _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel, DesignPattern pattern) {
     return favoriteModel.isFavorite(pattern)
         ? favoriteModel.removeFromFavorite(context, pattern)
         : favoriteModel.addToFavorite(context, pattern);

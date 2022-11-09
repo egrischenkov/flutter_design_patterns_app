@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../../initializer.dart';
 import '../../utils/app_colors.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 
-class InitPageState extends BasePageState {
+class InitPage extends BasePage {
   final Initializer _initializer = Initializer();
 
   @override
-  void initState() {
+  void init(BuildContext context, TickerProvider tickerProvider) {
     _initializer.init(context);
-    super.initState();
   }
 
   Color? backgroundColor() => mainBackgroundColor;
 
   @override
-  Widget? appBar() => null;
+  Widget? appBar(BuildContext context) => null;
 
   @override
-  String? getTitle() => null;
+  String? getTitle(BuildContext context) => null;
 
   @override
   Widget buildBody(BuildContext context) {

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern_type.dart';
 import '../../ui/page_state_factory.dart';
-import '../../ui/pages/category_page_state.dart';
-import '../../ui/pages/details_page_state.dart';
-import '../../ui/pages/favorite_page_state.dart';
-import '../../ui/pages/init_page_state.dart';
-import '../../ui/pages/language_page_state.dart';
-import '../../ui/pages/main_page_state.dart';
+import '../../ui/pages/category_page.dart';
+import '../../ui/pages/details_page.dart';
+import '../../ui/pages/favorite_page.dart';
+import '../../ui/pages/init_page.dart';
+import '../../ui/pages/language_page.dart';
+import '../../ui/pages/main_page.dart';
 import '../../ui/pattern_widgets/abstract_factory/widgets/abstract_factory_pattern_widget.dart';
 import '../../ui/pattern_widgets/adapter/widgets/adapter_pattern_widget.dart';
 import '../../ui/pattern_widgets/bridge/widgets/bridge_pattern_widget.dart';
@@ -45,10 +45,10 @@ class AppRouter {
     RouteSettings routeSettings,
     Widget innerWidget,
   ) {
-    final navigateArgument = _checkArgument<Map<String,dynamic>>(routeSettings.arguments);
+    final navigateArgument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
     return MaterialPageRoute(
       builder: (context) => PageStateFactory(
-        concreteState: () => DetailsPageState(
+        concreteState: () => DetailsPage(
           designPattern: navigateArgument["design_pattern"],
           innerWidget: innerWidget,
         ),
@@ -60,18 +60,18 @@ class AppRouter {
     switch (routeSettings.name) {
       case Navigation.initRoute:
         return MaterialPageRoute(
-          builder: (context) => PageStateFactory(concreteState: () => InitPageState()),
+          builder: (context) => PageStateFactory(concreteState: () => InitPage()),
         );
       case Navigation.mainRoute:
         final patternTypes = _checkArgument<List<DesignPatternType>>(routeSettings.arguments);
         return MaterialPageRoute(
-          builder: (context) => PageStateFactory(concreteState: () => MainPageState(patternTypes)),
+          builder: (context) => PageStateFactory(concreteState: () => MainPage(patternTypes)),
         );
       case Navigation.categoryRoute:
         final navigateArgument = _checkArgument<Map<String, dynamic>>(routeSettings.arguments);
         return MaterialPageRoute(
           builder: (context) => PageStateFactory(
-            concreteState: () => CategoryPageState(
+            concreteState: () => CategoryPage(
               designPatternType: navigateArgument['pattern_type'],
             ),
           ),
@@ -79,13 +79,13 @@ class AppRouter {
       case Navigation.favoriteRoute:
         return MaterialPageRoute(
           builder: (context) => PageStateFactory(
-            concreteState: () => FavoritePageState(),
+            concreteState: () => FavoritePage(),
           ),
         );
       case Navigation.languageRoute:
         return MaterialPageRoute(
           builder: (context) => PageStateFactory(
-            concreteState: () => LanguagePageState(),
+            concreteState: () => LanguagePage(),
           ),
         );
       case Navigation.abstractFactoryRoute:

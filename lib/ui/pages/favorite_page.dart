@@ -6,11 +6,11 @@ import '../../logic/extensions/context_extensions.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 import '../items/standard_list_item.dart';
 import '../widgets/vertical_space.dart';
 
-class FavoritePageState extends BasePageState {
+class FavoritePage extends BasePage {
   @override
   bool isFavoritePage() => true;
 
@@ -21,10 +21,9 @@ class FavoritePageState extends BasePageState {
   Color? backgroundColor() => favoriteScreenBackgroundColor;
 
   @override
-  String? getTitle() => context.localizations.favorite;
+  String? getTitle(BuildContext context) => context.localizations.favorite;
 
-  Future<void> _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel,
-      DesignPattern pattern) {
+  Future<void> _onFavoriteTap(BuildContext context, FavoriteModel favoriteModel, DesignPattern pattern) {
     return favoriteModel.removeFromFavorite(context, pattern);
   }
 
