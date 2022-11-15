@@ -1,11 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../logic/navigation/app_router.dart';
+import '../../../logic/navigation/app_router/app_router.dart';
 import '../../../logic/provider/theme_model.dart';
 import '../../../utils/app_colors.dart';
-import '../../../utils/utils.dart';
 import '../horizontal_space.dart';
 
 class StandardAppBarWidget extends StatelessWidget {
@@ -13,17 +13,14 @@ class StandardAppBarWidget extends StatelessWidget {
   final String title;
   final bool isFavoritePage;
 
-  StandardAppBarWidget(
-      {required this.title,
-      required this.backgroundColor,
-      this.isFavoritePage = false});
+  StandardAppBarWidget({required this.title, required this.backgroundColor, this.isFavoritePage = false});
 
   @override
   Widget build(BuildContext context) {
     final themeModel = context.watch<ThemeModel>();
     return AppBar(
       leading: BackButton(
-          color: textColor,
+        color: textColor,
       ),
       backgroundColor: backgroundColor,
       title: Text(
@@ -39,7 +36,7 @@ class StandardAppBarWidget extends StatelessWidget {
               isDarkModeEnabled: !themeModel.isLight,
               onStateChanged: (isDarkModeEnabled) {
                 themeModel.setIsLight(!isDarkModeEnabled);
-              }
+              },
             ),
           ),
         ),
@@ -49,10 +46,7 @@ class StandardAppBarWidget extends StatelessWidget {
             icon: Icon(Icons.favorite_border),
             color: textColor,
             onPressed: () {
-              navigate(
-                Navigation.favoriteRoute,
-                argument: {'color': mainBackgroundColor},
-              );
+              context.router.push(FavoriteRoute());
             },
           ),
         HorizontalSpace(32),

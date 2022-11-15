@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../entity/design_pattern_type.dart';
 import '../../logic/extensions/context_extensions.dart';
-import '../../logic/navigation/app_router.dart';
+import '../../logic/navigation/app_router/app_router.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
 import '../base_page.dart';
@@ -33,9 +34,8 @@ class MainPage extends BasePage {
             description: context.localizations.pattern_types_description(designPatternType.id),
             color: switchColor(patternTypes[index].designPatterns.first),
             nextColor: index == 2 ? mainBackgroundColor : switchColor(patternTypes[index + 1].designPatterns.first),
-            onTap: () => navigate(
-              Navigation.categoryRoute,
-              argument: {'pattern_type': designPatternType},
+            onTap: () => context.router.push(
+              CategoryRoute(designPatternType: designPatternType),
             ),
           );
         },

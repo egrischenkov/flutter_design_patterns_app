@@ -6,7 +6,7 @@ import 'entity/design_pattern.dart';
 import 'entity/design_pattern_type.dart';
 import 'entity/repository/design_patterns_repository.dart';
 import 'logic/database/database_provider.dart';
-import 'logic/navigation/app_router/app_router.gr.dart';
+import 'logic/navigation/app_router/app_router.dart';
 import 'logic/provider/favorite_model.dart';
 
 class Initializer {

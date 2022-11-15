@@ -10,61 +10,50 @@
 //
 // ignore_for_file: type=lint
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
-import 'package:flutter_design_patterns/entity/design_pattern.dart' as _i10;
-import 'package:flutter_design_patterns/entity/design_pattern_type.dart' as _i9;
-import 'package:flutter_design_patterns/ui/pages/category_page.dart' as _i3;
-import 'package:flutter_design_patterns/ui/pages/details_page.dart' as _i6;
-import 'package:flutter_design_patterns/ui/pages/favorite_page.dart' as _i4;
-import 'package:flutter_design_patterns/ui/pages/init_page.dart' as _i1;
-import 'package:flutter_design_patterns/ui/pages/language_page.dart' as _i5;
-import 'package:flutter_design_patterns/ui/pages/main_page.dart' as _i2;
+part of 'app_router.dart';
 
-class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+class _$AppRouter extends RootStackRouter {
+  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
+  final Map<String, PageFactory> pagesMap = {
     InitRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i1.InitPage(),
+        child: InitPage(),
       );
     },
     MainRoute.name: (routeData) {
       final args = routeData.argsAs<MainRouteArgs>();
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i2.MainPage(args.patternTypes),
+        child: MainPage(args.patternTypes),
       );
     },
     CategoryRoute.name: (routeData) {
       final args = routeData.argsAs<CategoryRouteArgs>();
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i3.CategoryPage(designPatternType: args.designPatternType),
+        child: CategoryPage(designPatternType: args.designPatternType),
       );
     },
     FavoriteRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i4.FavoritePage(),
+        child: FavoritePage(),
       );
     },
     LanguageRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i5.LanguagePage(),
+        child: LanguagePage(),
       );
     },
     DetailsRoute.name: (routeData) {
       final args = routeData.argsAs<DetailsRouteArgs>();
-      return _i7.AdaptivePage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i6.DetailsPage(
+        child: DetailsPage(
           designPattern: args.designPattern,
           innerWidget: args.innerWidget,
         ),
@@ -73,28 +62,28 @@ class AppRouter extends _i7.RootStackRouter {
   };
 
   @override
-  List<_i7.RouteConfig> get routes => [
-        _i7.RouteConfig(
+  List<RouteConfig> get routes => [
+        RouteConfig(
           InitRoute.name,
           path: '/',
         ),
-        _i7.RouteConfig(
+        RouteConfig(
           MainRoute.name,
           path: '/main-page',
         ),
-        _i7.RouteConfig(
+        RouteConfig(
           CategoryRoute.name,
           path: '/category-page',
         ),
-        _i7.RouteConfig(
+        RouteConfig(
           FavoriteRoute.name,
           path: '/favorite-page',
         ),
-        _i7.RouteConfig(
+        RouteConfig(
           LanguageRoute.name,
           path: '/language-page',
         ),
-        _i7.RouteConfig(
+        RouteConfig(
           DetailsRoute.name,
           path: '/details-page',
         ),
@@ -102,8 +91,8 @@ class AppRouter extends _i7.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.InitPage]
-class InitRoute extends _i7.PageRouteInfo<void> {
+/// [InitPage]
+class InitRoute extends PageRouteInfo<void> {
   const InitRoute()
       : super(
           InitRoute.name,
@@ -114,9 +103,9 @@ class InitRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.MainPage]
-class MainRoute extends _i7.PageRouteInfo<MainRouteArgs> {
-  MainRoute({required List<_i9.DesignPatternType> patternTypes})
+/// [MainPage]
+class MainRoute extends PageRouteInfo<MainRouteArgs> {
+  MainRoute({required List<DesignPatternType> patternTypes})
       : super(
           MainRoute.name,
           path: '/main-page',
@@ -129,7 +118,7 @@ class MainRoute extends _i7.PageRouteInfo<MainRouteArgs> {
 class MainRouteArgs {
   const MainRouteArgs({required this.patternTypes});
 
-  final List<_i9.DesignPatternType> patternTypes;
+  final List<DesignPatternType> patternTypes;
 
   @override
   String toString() {
@@ -138,9 +127,9 @@ class MainRouteArgs {
 }
 
 /// generated route for
-/// [_i3.CategoryPage]
-class CategoryRoute extends _i7.PageRouteInfo<CategoryRouteArgs> {
-  CategoryRoute({required _i9.DesignPatternType designPatternType})
+/// [CategoryPage]
+class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
+  CategoryRoute({required DesignPatternType designPatternType})
       : super(
           CategoryRoute.name,
           path: '/category-page',
@@ -153,7 +142,7 @@ class CategoryRoute extends _i7.PageRouteInfo<CategoryRouteArgs> {
 class CategoryRouteArgs {
   const CategoryRouteArgs({required this.designPatternType});
 
-  final _i9.DesignPatternType designPatternType;
+  final DesignPatternType designPatternType;
 
   @override
   String toString() {
@@ -162,8 +151,8 @@ class CategoryRouteArgs {
 }
 
 /// generated route for
-/// [_i4.FavoritePage]
-class FavoriteRoute extends _i7.PageRouteInfo<void> {
+/// [FavoritePage]
+class FavoriteRoute extends PageRouteInfo<void> {
   const FavoriteRoute()
       : super(
           FavoriteRoute.name,
@@ -174,8 +163,8 @@ class FavoriteRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.LanguagePage]
-class LanguageRoute extends _i7.PageRouteInfo<void> {
+/// [LanguagePage]
+class LanguageRoute extends PageRouteInfo<void> {
   const LanguageRoute()
       : super(
           LanguageRoute.name,
@@ -186,11 +175,11 @@ class LanguageRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.DetailsPage]
-class DetailsRoute extends _i7.PageRouteInfo<DetailsRouteArgs> {
+/// [DetailsPage]
+class DetailsRoute extends PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
-    required _i10.DesignPattern designPattern,
-    required _i8.Widget innerWidget,
+    required DesignPattern designPattern,
+    required Widget innerWidget,
   }) : super(
           DetailsRoute.name,
           path: '/details-page',
@@ -209,9 +198,9 @@ class DetailsRouteArgs {
     required this.innerWidget,
   });
 
-  final _i10.DesignPattern designPattern;
+  final DesignPattern designPattern;
 
-  final _i8.Widget innerWidget;
+  final Widget innerWidget;
 
   @override
   String toString() {

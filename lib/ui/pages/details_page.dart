@@ -18,7 +18,6 @@ class DetailsPage extends BasePage {
   });
 
   late final TabController _tabController;
-
   Color _getCurrentColor() => switchColor(designPattern);
 
   @override

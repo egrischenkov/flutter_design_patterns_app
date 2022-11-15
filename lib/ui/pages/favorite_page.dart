@@ -1,11 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../entity/design_pattern.dart';
 import '../../logic/extensions/context_extensions.dart';
+import '../../logic/navigation/app_router/app_router.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/utils.dart';
 import '../base_page.dart';
 import '../items/standard_list_item.dart';
 import '../widgets/vertical_space.dart';
@@ -55,12 +56,11 @@ class FavoritePage extends BasePage {
                 return StandardListItem(
                   designPattern: designPattern,
                   onTap: () {
-                    navigate(
-                      '/${designPattern.id.toString()}',
-                      argument: {
-                        "design_pattern": designPattern,
-                      },
-                      replace: true,
+                    context.router.push(
+                      DetailsRoute(
+                        designPattern: designPattern,
+                        innerWidget: AppRouter.patternsWidgetSelector(designPattern.id),
+                      ),
                     );
                   },
                   onFavoriteTap: () async => await _onFavoriteTap(

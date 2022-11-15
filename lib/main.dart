@@ -4,8 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'locale_model.dart';
-// import 'logic/navigation/app_router.dart';
-import 'logic/navigation/app_router/app_router.gr.dart';
+import 'logic/navigation/app_router/app_router.dart';
 import 'logic/provider/favorite_model.dart';
 import 'logic/provider/theme_model.dart';
 import 'utils/app_colors.dart';

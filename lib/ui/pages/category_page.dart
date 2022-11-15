@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../entity/design_pattern.dart';
 import '../../entity/design_pattern_type.dart';
 import '../../logic/extensions/context_extensions.dart';
+import '../../logic/navigation/app_router/app_router.dart';
 import '../../logic/provider/favorite_model.dart';
 import '../../utils/utils.dart';
 import '../base_page.dart';
@@ -51,11 +53,11 @@ class CategoryPage extends BasePage {
           return StandardListItem(
             designPattern: designPattern,
             onTap: () {
-              navigate(
-                '/${designPattern.id.toString()}',
-                argument: {
-                  "design_pattern": designPattern,
-                },
+              context.router.push(
+                DetailsRoute(
+                  designPattern: designPattern,
+                  innerWidget: AppRouter.patternsWidgetSelector(designPattern.id),
+                ),
               );
             },
             onFavoriteTap: () async => await _onFavoriteTap(
