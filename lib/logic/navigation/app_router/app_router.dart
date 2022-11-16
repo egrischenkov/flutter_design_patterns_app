@@ -9,6 +9,10 @@ import '../../../ui/pages/favorite_page.dart';
 import '../../../ui/pages/init_page.dart';
 import '../../../ui/pages/language_page.dart';
 import '../../../ui/pages/main_page.dart';
+import '../../../ui/pages/nested_page/nested_pages/first_nested_page.dart';
+import '../../../ui/pages/nested_page/nested_pages/second_nested_page.dart';
+import '../../../ui/pages/nested_page/nested_pages/third_nested_page.dart';
+import '../../../ui/pages/nested_page/nested_route_page.dart';
 import '../../../ui/pattern_widgets/abstract_factory/widgets/abstract_factory_pattern_widget.dart';
 import '../../../ui/pattern_widgets/adapter/widgets/adapter_pattern_widget.dart';
 import '../../../ui/pattern_widgets/bridge/widgets/bridge_pattern_widget.dart';
@@ -43,6 +47,15 @@ part 'app_router.gr.dart';
     AutoRoute(page: FavoritePage),
     AutoRoute(page: LanguagePage),
     AutoRoute(page: DetailsPage),
+    AutoRoute(
+      page: NestedRoutePage,
+      children: [
+        AutoRoute(path: 'first', page: FirstNestedPage),
+        AutoRoute(path: 'second', page: SecondNestedPage),
+        AutoRoute(path: 'third', page: ThirdNestedPage),
+        RedirectRoute(path: '', redirectTo: 'third')
+      ],
+    ),
   ],
 )
 class AppRouter extends _$AppRouter {

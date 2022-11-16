@@ -59,6 +59,30 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    NestedRouteRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: NestedRoutePage(),
+      );
+    },
+    FirstNestedRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const FirstNestedPage(),
+      );
+    },
+    SecondNestedRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const SecondNestedPage(),
+      );
+    },
+    ThirdNestedRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ThirdNestedPage(),
+      );
+    },
   };
 
   @override
@@ -86,6 +110,34 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           DetailsRoute.name,
           path: '/details-page',
+        ),
+        RouteConfig(
+          NestedRouteRoute.name,
+          path: '/nested-route-page',
+          children: [
+            RouteConfig(
+              FirstNestedRoute.name,
+              path: 'first',
+              parent: NestedRouteRoute.name,
+            ),
+            RouteConfig(
+              SecondNestedRoute.name,
+              path: 'second',
+              parent: NestedRouteRoute.name,
+            ),
+            RouteConfig(
+              ThirdNestedRoute.name,
+              path: 'third',
+              parent: NestedRouteRoute.name,
+            ),
+            RouteConfig(
+              '#redirect',
+              path: '',
+              parent: NestedRouteRoute.name,
+              redirectTo: 'third',
+              fullMatch: true,
+            ),
+          ],
         ),
       ];
 }
@@ -206,4 +258,53 @@ class DetailsRouteArgs {
   String toString() {
     return 'DetailsRouteArgs{designPattern: $designPattern, innerWidget: $innerWidget}';
   }
+}
+
+/// generated route for
+/// [NestedRoutePage]
+class NestedRouteRoute extends PageRouteInfo<void> {
+  const NestedRouteRoute({List<PageRouteInfo>? children})
+      : super(
+          NestedRouteRoute.name,
+          path: '/nested-route-page',
+          initialChildren: children,
+        );
+
+  static const String name = 'NestedRouteRoute';
+}
+
+/// generated route for
+/// [FirstNestedPage]
+class FirstNestedRoute extends PageRouteInfo<void> {
+  const FirstNestedRoute()
+      : super(
+          FirstNestedRoute.name,
+          path: 'first',
+        );
+
+  static const String name = 'FirstNestedRoute';
+}
+
+/// generated route for
+/// [SecondNestedPage]
+class SecondNestedRoute extends PageRouteInfo<void> {
+  const SecondNestedRoute()
+      : super(
+          SecondNestedRoute.name,
+          path: 'second',
+        );
+
+  static const String name = 'SecondNestedRoute';
+}
+
+/// generated route for
+/// [ThirdNestedPage]
+class ThirdNestedRoute extends PageRouteInfo<void> {
+  const ThirdNestedRoute()
+      : super(
+          ThirdNestedRoute.name,
+          path: 'third',
+        );
+
+  static const String name = 'ThirdNestedRoute';
 }
