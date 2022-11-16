@@ -6,12 +6,12 @@ import '../../locale_model.dart';
 import '../../logic/extensions/context_extensions.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/const.dart';
-import '../base_page_state.dart';
+import '../base_page.dart';
 
-class LanguagePageState extends BasePageState {
+class LanguagePage extends BasePage {
   final localeStrings = <String>[enLocaleName, ruLocaleName];
   @override
-  String? getTitle() => context.localizations.language;
+  String? getTitle(BuildContext context) => context.localizations.language;
 
   @override
   bool isCurvedAppBar() => false;
@@ -43,6 +43,7 @@ class LanguagePageState extends BasePageState {
       ),
     );
   }
+
   void load(Locale locale) {
     final name = locale.countryCode?.isEmpty ?? false ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);

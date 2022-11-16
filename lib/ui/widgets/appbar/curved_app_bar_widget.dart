@@ -1,12 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../logic/extensions/context_extensions.dart';
-import '../../../logic/navigation/app_router.dart';
+import '../../../logic/navigation/app_router/app_router.dart';
 import '../../../logic/provider/theme_model.dart';
+import '../../../main.dart';
 import '../../../utils/app_colors.dart';
-import '../../../utils/utils.dart';
 import '../../items/app_bar_item.dart';
 import '../heart_animated_widget.dart';
 import '../horizontal_space.dart';
@@ -59,34 +60,36 @@ class CurvedAppBarWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       AppBarItem(
-                        DayNightSwitcher(
-                          isDarkModeEnabled: !themeModel.isLight,
-                          onStateChanged: (isDarkModeEnabled) =>
-                              themeModel.setIsLight(!isDarkModeEnabled),
-                        ),
-                        context.localizations.theme,
-                        () => themeModel.setIsLight(!themeModel.isLight),
+                        Icon(Icons.arrow_downward_outlined),
+                        context.localizations.nested_route,
+                        () {
+                          context.router.push(
+                            NestedRouteRoute(),
+                          );
+                        },
                       ),
+                      // AppBarItem(
+                      //   DayNightSwitcher(
+                      //     isDarkModeEnabled: !themeModel.isLight,
+                      //     onStateChanged: (isDarkModeEnabled) => themeModel.setIsLight(!isDarkModeEnabled),
+                      //   ),
+                      //   context.localizations.theme,
+                      //   () => themeModel.setIsLight(!themeModel.isLight),
+                      // ),
                       HorizontalSpace(32),
                       AppBarItem(
                         HeartAnimatedWidget(),
                         context.localizations.favorite,
                         () {
-                          navigate(
-                            Navigation.favoriteRoute,
-                            argument: {'color': mainBackgroundColor},
-                          );
+                          context.router.push(FavoriteRoute());
                         },
                       ),
                       HorizontalSpace(32),
                       AppBarItem(
                         Icon(Icons.language),
                         context.localizations.language,
-                            () {
-                          navigate(
-                            Navigation.languageRoute,
-                            argument: {'color': mainBackgroundColor},
-                          );
+                        () {
+                          context.router.push(LanguageRoute());
                         },
                       ),
                     ],

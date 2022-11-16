@@ -1,60 +1,52 @@
 {
-  "main_title" : "Flutter Design Patterns",
-  "theme" : "Theme",
-  "favorite" : "Favorite",
-
-  "pattern_types" : "{patternTypeId, select, creational {Creational} structural {Structural} behavioral {Behavioral}}",
-  "@pattern_types" : {
-    "placeholders" : {
-      "patternTypeId" : {}
+  "main_title": "Flutter Design Patterns",
+  "theme": "Theme",
+  "favorite": "Favorite",
+  "nested_route": "Nested route",
+  "pattern_types": "{patternTypeId, select, creational {Creational} structural {Structural} behavioral {Behavioral}}",
+  "@pattern_types": {
+    "placeholders": {
+      "patternTypeId": {}
     }
   },
-
-  "pattern_types_description" : "{patternTypeId, select, creational {Provide various object creation mechanisms.} structural {Assemble objects and classes into larger structures.} behavioral {Concerned the assignment of responsibilities between objects}}",
-  "@pattern_types_description" : {
-    "placeholders" : {
-      "patternTypeId" : {}
+  "pattern_types_description": "{patternTypeId, select, creational {Provide various object creation mechanisms.} structural {Assemble objects and classes into larger structures.} behavioral {Concerned the assignment of responsibilities between objects}}",
+  "@pattern_types_description": {
+    "placeholders": {
+      "patternTypeId": {}
     }
   },
-
-  "patterns_name" : "{patternId, select, abstract_factory {Abstract factory} builder {Builder} factory_method {Factory method} prototype {Prototype} singleton {Singleton} adapter {Adapter} bridge {Bridge} composite {Composite} decorator {Decorator} facade {Facade} flyweight {Flyweight} proxy {Proxy} chain_of_responsibility {Chain of responsibility} command {Command} iterator {Iterator} mediator {Mediator} memento {Memento} observer {Observer} state {State} strategy {Strategy} template_method {Template method} visitor {Visitor}}",
-  "@patterns_name" : {
-    "placeholders" : {
-      "patternId" : {}
+  "patterns_name": "{patternId, select, abstract_factory {Abstract factory} builder {Builder} factory_method {Factory method} prototype {Prototype} singleton {Singleton} adapter {Adapter} bridge {Bridge} composite {Composite} decorator {Decorator} facade {Facade} flyweight {Flyweight} proxy {Proxy} chain_of_responsibility {Chain of responsibility} command {Command} iterator {Iterator} mediator {Mediator} memento {Memento} observer {Observer} state {State} strategy {Strategy} template_method {Template method} visitor {Visitor}}",
+  "@patterns_name": {
+    "placeholders": {
+      "patternId": {}
     }
   },
-
-  "patterns_description" : "{patternId, select, abstract_factory {Provide an interface for creating families of related or dependent objects without specifying their concrete classes} builder {Separate the construction of a complex object from its representation so that the same construction process can create different representations}, factory_method {Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to sub\u00ADclasses} prototype {Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype} singleton {Ensure a class only has one instance, and provide a global point of access to it} adapter {Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces} bridge {Decouple an abstraction from its implementation so that the two can vary independently} composite {Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly} decorator {Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality} facade {Provide an unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use} flyweight {Use sharing to support large numbers of fine-grained objects efficiently} proxy {Provide a surrogate or placeholder for another object to control access to it} chain_of_responsibility {Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it} command {Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable opera\u00ADtions} iterator {Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation} mediator {Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently} memento {Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later} observer {Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically} state {Allow an object to alter its behavior when its internal state changes. The object will appear to change its class} strategy {Define a family of algorithms, encapsulate each one, and make them interchange\u00ADable. Strategy lets the algorithm vary independently from clients that use it} template_method {Define the skeleton of an algorithm in an operation, deferring some steps to sub\u00ADclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure} visitor {Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates}}",
-  "@patterns_description" : {
-    "placeholders" : {
-      "patternId" : {}
+  "patterns_description": "{patternId, select, abstract_factory {Provide an interface for creating families of related or dependent objects without specifying their concrete classes} builder {Separate the construction of a complex object from its representation so that the same construction process can create different representations}, factory_method {Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to sub\u00ADclasses} prototype {Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype} singleton {Ensure a class only has one instance, and provide a global point of access to it} adapter {Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces} bridge {Decouple an abstraction from its implementation so that the two can vary independently} composite {Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly} decorator {Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality} facade {Provide an unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use} flyweight {Use sharing to support large numbers of fine-grained objects efficiently} proxy {Provide a surrogate or placeholder for another object to control access to it} chain_of_responsibility {Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it} command {Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable opera\u00ADtions} iterator {Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation} mediator {Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently} memento {Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later} observer {Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically} state {Allow an object to alter its behavior when its internal state changes. The object will appear to change its class} strategy {Define a family of algorithms, encapsulate each one, and make them interchange\u00ADable. Strategy lets the algorithm vary independently from clients that use it} template_method {Define the skeleton of an algorithm in an operation, deferring some steps to sub\u00ADclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure} visitor {Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates}}",
+  "@patterns_description": {
+    "placeholders": {
+      "patternId": {}
     }
   },
-
-  "patterns" : "{COUNT} patterns",
-  "@patterns" : {
-    "placeholders" : {
-      "COUNT" : {}
+  "patterns": "{COUNT} patterns",
+  "@patterns": {
+    "placeholders": {
+      "COUNT": {}
     }
   },
-
-  "example" : "Example",
-  "description" : "Description",
-
-  "warning_no_favorite" : "Oops, no favorite patterns yet!",
-  "language" : "Language",
-
+  "example": "Example",
+  "description": "Description",
+  "warning_no_favorite": "Oops, no favorite patterns yet!",
+  "language": "Language",
   "add_to_favorite": "{PATTERN} pattern add to favorite",
-  "@add_to_favorite" : {
-    "placeholders" : {
-      "PATTERN" : {}
+  "@add_to_favorite": {
+    "placeholders": {
+      "PATTERN": {}
     }
   },
-
-  "remove_from_favorite" : "{PATTERN} pattern remove from favorite",
-  "@remove_from_favorite" : {
-    "placeholders" : {
-      "PATTERN" : {}
+  "remove_from_favorite": "{PATTERN} pattern remove from favorite",
+  "@remove_from_favorite": {
+    "placeholders": {
+      "PATTERN": {}
     }
   }
 }

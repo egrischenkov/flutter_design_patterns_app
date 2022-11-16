@@ -1,33 +1,45 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
-import 'page_state_factory.dart';
 import 'widgets/appbar/curved_app_bar_widget.dart';
 import 'widgets/appbar/standard_app_bar_widget.dart';
 
-abstract class BasePageState extends State<PageStateFactory> {
+abstract class BasePage extends StatefulWidget {
   Widget buildBody(BuildContext context);
+
+  void init(BuildContext context, TickerProvider tickerProvider) {}
 
   Color? backgroundColor() => Colors.white;
 
   bool isCurvedAppBar() => true;
 
-  String? getTitle();
-
   bool isFavoritePage() => false;
 
-  Widget? appBar() {
+  Widget? appBar(BuildContext context) {
     return isCurvedAppBar()
         ? CurvedAppBarWidget(
-            title: getTitle()!,
+            title: getTitle(context)!,
             color: mainBackgroundColor,
             backgroundColor: backgroundColor()!,
           )
         : StandardAppBarWidget(
-            title: getTitle()!,
+            title: getTitle(context)!,
             isFavoritePage: isFavoritePage(),
             backgroundColor: backgroundColor()!,
           );
+  }
+
+  String? getTitle(BuildContext context);
+
+  @override
+  State<BasePage> createState() => _BasePageState();
+}
+
+class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    widget.init(context, this);
   }
 
   @override
@@ -39,8 +51,8 @@ abstract class BasePageState extends State<PageStateFactory> {
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            appBar() ?? SizedBox.shrink(),
-            Expanded(child: buildBody(context)),
+            widget.appBar(context) ?? SizedBox.shrink(),
+            Expanded(child: widget.buildBody(context)),
           ],
         ),
       ),
